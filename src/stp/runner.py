@@ -13,7 +13,7 @@ ctypes = E.C
 def run(p: S.Params, seed: int, cfg: SutConfig = SutConfig(), spec: S.Params = None, **scenario_kw):
     """Execute p. Gates compare the execution with spec (default p), so a mismatch between intent and execution is caught."""
     rng = np.random.default_rng(seed)
-    gust_period = rng.uniform(1.5, 4.0); gust_phase = rng.uniform(0, 2 * math.pi)
+    gust_period = rng.uniform(*cfg.gust_period); gust_phase = rng.uniform(0, cfg.gust_phase_span)
     tr = dict(curv=[], ended_early=False, init_ok=False, ctrl_type=-1, s0=-1, t0=99, lane0=0, steps=0, s_max=0.0, sim_time=0.0, speed_mean=0.0)
     with tempfile.TemporaryDirectory(prefix="stp_") as tmp:
         f = S.write(p, Path(tmp), **scenario_kw)

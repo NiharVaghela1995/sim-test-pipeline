@@ -20,8 +20,9 @@ class Params:
 
 
 VARS = ("speed", "k1", "k2", "gust")
-XL = [12.0, 0.002, -0.04, 0.0]
-XU = [32.0, 0.040, 0.04, 1.0]
+# Frozen on 2026-11-10 after calibration on random samples only; see docs/CALIBRATION.md
+XL = [8.0, 0.002, -0.012, 0.0]
+XU = [20.0, 0.012, 0.012, 0.5]
 
 
 def _advance(x, y, h, k, L):

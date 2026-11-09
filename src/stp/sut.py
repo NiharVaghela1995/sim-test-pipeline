@@ -16,6 +16,16 @@ class SutConfig:
     lookahead_min: float = 6.0   # m
     noise_sd: float = 0.15       # perception noise on the lateral target, m
     delay_steps: tuple = (5, 25) # control latency, in 20 ms steps, drawn per run
+    gust_period: tuple = (1.5, 4.0)  # gust period range, s, drawn per run
+    gust_phase_span: float = 2 * math.pi  # gust phase range, rad, drawn per run
+
+
+# The nondeterminism W at three frozen levels. Medium is the level used for range calibration.
+LEVELS = {
+    "low": SutConfig(noise_sd=0.05, delay_steps=(5, 8), gust_period=(2.5, 3.0), gust_phase_span=math.pi / 4),
+    "medium": SutConfig(),
+    "high": SutConfig(noise_sd=0.30, delay_steps=(5, 50), gust_period=(1.0, 6.0)),
+}
 
 
 class LaneKeeper:

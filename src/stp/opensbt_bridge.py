@@ -1,6 +1,7 @@
 """Connect the runner to OpenSBT 0.1.7: simulator, fitness, oracle, problem."""
 import hashlib
 import json
+import os
 import numpy as np
 from opensbt.evaluation.critical import Critical
 from opensbt.evaluation.fitness import Fitness
@@ -12,7 +13,8 @@ WORST = 10.0  # fitness for a run that was not realised, so search does not expl
 
 
 class Log:
-    records = []; tag = ""; counter = 0
+    """Per-search state. `cached` replays evaluations from the checkpoint file so that a restarted search continues where it stopped."""
+    records = []; tag = ""; counter = 0; cfg = None; cached = []; sink = None; every = 100
 
 
 def _seed(tag, i):
@@ -26,8 +28,17 @@ class EsminiLaneKeep(Simulator):
         for ind in list_individuals:
             x = [float(v) for v in ind]
             Log.counter += 1; seed = _seed(Log.tag, Log.counter)
-            r = runner.run(S.Params(**dict(zip(variable_names, x))), seed)
-            r.update(eval=Log.counter, tag=Log.tag); Log.records.append(r)
+            if Log.counter <= len(Log.cached):
+                r = Log.cached[Log.counter - 1]
+                if not np.allclose([r["params"][v] for v in variable_names], x):
+                    raise RuntimeError("checkpoint does not match the search trajectory")
+            else:
+                r = runner.run(S.Params(**dict(zip(variable_names, x))), seed, Log.cfg)
+                r.update(eval=Log.counter, tag=Log.tag)
+                Log.sink.write(json.dumps(r) + "\n")
+                if Log.counter % Log.every == 0:
+                    Log.sink.flush(); os.fsync(Log.sink.fileno())
+            Log.records.append(r)
             out.append(SimulationOutput(simTime=sim_time, times=[0.0], location={"ego": [(0, 0)]}, velocity={"ego": [(0, 0, 0)]}, speed={"ego": [x[0]]}, acceleration={"ego": [0.0]}, yaw={"ego": [0.0]}, collisions=[], actors={"ego": "ego"},
                                         otherParams={"margin": r["margin"] if r["realised"] else WORST, "peak_offset": r["peak_offset"] if r["realised"] else 0.0, "failed": r["failed"], "realised": r["realised"]}))
         return out
