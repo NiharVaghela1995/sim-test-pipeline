@@ -1,0 +1,121 @@
+{
+ "latency_ms": 200,
+ "candidates": {
+  "A": {
+   "space": {
+    "xl": [
+     8.0,
+     0.002,
+     -0.02,
+     0.0
+    ],
+    "xu": [
+     24.0,
+     0.02,
+     0.02,
+     1.0
+    ]
+   },
+   "G0": {
+    "low": {
+     "100": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "200": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "300": {
+      "n": 100,
+      "realised": 100,
+      "failed": 3
+     },
+     "360": {
+      "n": 100,
+      "realised": 100,
+      "failed": 24
+     },
+     "400": {
+      "n": 100,
+      "realised": 100,
+      "failed": 39
+     },
+     "460": {
+      "n": 100,
+      "realised": 100,
+      "failed": 99
+     }
+    },
+    "medium": {
+     "100": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "200": {
+      "n": 100,
+      "realised": 100,
+      "failed": 2
+     },
+     "300": {
+      "n": 100,
+      "realised": 100,
+      "failed": 4
+     },
+     "360": {
+      "n": 100,
+      "realised": 100,
+      "failed": 13
+     },
+     "400": {
+      "n": 100,
+      "realised": 100,
+      "failed": 30
+     },
+     "460": {
+      "n": 100,
+      "realised": 100,
+      "failed": 99
+     }
+    },
+    "high": {
+     "100": {
+      "n": 100,
+      "realised": 100,
+      "failed": 8
+     },
+     "200": {
+      "n": 100,
+      "realised": 100,
+      "failed": 7
+     },
+     "300": {
+      "n": 100,
+      "realised": 100,
+      "failed": 12
+     },
+     "360": {
+      "n": 100,
+      "realised": 100,
+      "failed": 26
+     },
+     "400": {
+      "n": 100,
+      "realised": 100,
+      "failed": 56
+     },
+     "460": {
+      "n": 100,
+      "realised": 100,
+      "failed": 98
+     }
+    }
+   },
+   "G0_pass": false
+  }
+ },
+ "frozen": null
+}
