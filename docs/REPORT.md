@@ -1,4 +1,4 @@
-# First result: campaign v1 (2026-11-10)
+# v1: noise-dominated, cautionary result (2026-11-10)
 
 **Bottom line.** The campaign ran as planned, but it cannot answer which verdict rule separates real failures from spurious ones. Control latency decides almost every outcome and the scenario hardly matters, so reported failures at one noise level all have nearly the same reproduction rate. The verdict-rule tables below therefore show how each rule behaves at two base rates, about 0.2 and 0.63. A corrected design is needed before any rule can be recommended.
 
