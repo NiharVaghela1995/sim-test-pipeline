@@ -1,0 +1,22 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    env:
+      PYTHONPATH: src
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Build the pinned environment
+        run: scripts/setup_env.sh
+      - name: Install the notebook runner
+        run: uv pip install --python .venv/bin/python -r env/requirements-notebooks.txt
+      - name: Unit tests
+        run: .venv/bin/python -m pytest -q tests
+      - name: Notebooks
+        run: .venv/bin/python -m pytest -q -o addopts="" -m notebook tests/test_notebooks.py
