@@ -42,13 +42,13 @@ def auc_cv(X, y, seed=0):
 
 
 def g0(name, c, workers):
-    """Latency sweep on scenarios demanding at most 3 m/s^2."""
+    """Latency sweep on scenarios demanding at most 3 m/s^2, with gust 0 so that latency is isolated (amendment 1 in docs/v2/PLAN.md)."""
     res = {}
     for level in LEVELS:
-        pool = sample(c, 20000, name, "g0", level); X = pool[demand(pool) <= 3.0][:100]; res[level] = {}
+        pool = sample(c, 20000, name, "g0_amended", level); X = pool[demand(pool) <= 3.0][:100].copy(); X[:, 3] = 0.0; res[level] = {}  # amendment 1: gust 0, fresh scenarios
         for lat in G0_LATENCY_STEPS:
-            key = f"{level}@{lat}"; f = RAW / "gate" / name / f"g0_{key}.jsonl"
-            run_jobs(RAW, f"gate {name} G0 {key}", [(key, params(x), i, 0, "g0") for i, x in enumerate(X)], f, workers)
+            key = f"{level}@{lat}"; f = RAW / "gate" / name / f"g0_amended_{key}.jsonl"
+            run_jobs(RAW, f"gate {name} G0-amended {key}", [(key, params(x), i, 0, "g0_amended") for i, x in enumerate(X)], f, workers)
             r = read_jsonl(f); res[level][lat * 20] = dict(n=len(r), realised=sum(x[2] for x in r), failed=sum(x[3] for x in r))
     return res, all(res[l][ms]["failed"] == 0 for l in LEVELS for ms in (200, 300))
 
@@ -94,7 +94,7 @@ def main():
     f = out / "gate.json"; R = json.load(open(f)) if f.exists() else {"latency_ms": LATENCY_STEPS * 20, "candidates": {}, "frozen": None}
     for name in a.candidates:
         c = CANDIDATES[name]; E = R["candidates"].setdefault(name, dict(space=c)); save = lambda: json.dump(R, open(f, "w"), indent=1)
-        E["G0"], ok = g0(name, c, a.workers); E["G0_pass"] = ok; save(); log(RAW, name, "G0", ok)
+        E["G0_amended"], ok = g0(name, c, a.workers); E["G0_amended_pass"] = ok; save(); log(RAW, name, "G0-amended", ok)
         if not ok:
             log(RAW, name, "G0 failed: stop, see the plan's fallback"); return
         E["G1"], p = g1(name, c, "g1", a.workers); E["G1_pass"] = p; save(); log(RAW, name, "G1/G2", p, {l: (round(E["G1"][l]["fail_rate"], 3), E["G1"][l].get("auc")) for l in LEVELS})

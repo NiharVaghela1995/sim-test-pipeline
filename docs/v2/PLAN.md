@@ -115,3 +115,9 @@ One simulator, one scenario family, one simple controller. Injected noise is not
 ## Commits
 
 This plan, then the frozen calibration, then the runs, then the report.
+
+## Amendment 1 (post hoc, 2026-11-10, after seeing G0 results on candidate A; approved by the author)
+
+The text above is unchanged. G0 failed on candidate A and the fallback to 100 ms failed too, so the stop rule applied. Every failure at 300 ms or below had gust above 0.75 m/s (0 failures with gust at or below 0.75, a split chosen after seeing the data). G0 had limited curvature demand but not gust, so it did not isolate latency.
+
+Change: G0 is rerun on fresh scenarios with **gust set to 0**, otherwise as written (demand at most 3 m/s², 100 scenarios per level, the same latencies, 0 failures required at 200 and 300 ms). Latency stays at 200 ms. The candidate order and all other gates are unchanged, and the fallback and stop rule still apply to the amended G0. The original G0 results stay in `results/v2/gate.json`. Failures driven by gust count as scenario-driven, because gust is a scenario input.
