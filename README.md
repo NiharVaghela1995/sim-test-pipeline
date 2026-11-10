@@ -12,4 +12,4 @@ scripts/setup_env.sh                  # about 80 MB, no sudo
 scripts/run_campaign.sh               # resumable, checkpoints every 100 runs
 ```
 
-Plan and input ranges were fixed before the main run: `docs/PREREG.md`, `docs/CALIBRATION.md`. Results: `docs/REPORT.md`.
+Plan and input ranges were fixed before the main run: `docs/PREREG.md`, `docs/CALIBRATION.md`. First result, including why it needs a corrected design: `docs/REPORT.md`.

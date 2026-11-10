@@ -81,3 +81,23 @@ def test_every_input_reaches_the_simulator(name, low, high):
     a = dict(CLEAN.dict()); b = dict(a); a[name] = low; b[name] = high
     ra, rb = runner.run(S.Params(**a), 11), runner.run(S.Params(**b), 11)
     assert ra["realised"] and rb["realised"] and ra["peak_offset"] != rb["peak_offset"]
+
+
+def test_wilson_known_value():
+    from stp.analysis import wilson_low
+    assert abs(wilson_low(10, 20) - 0.2993) < 0.001
+
+
+def test_sprt_stops_early_and_decides():
+    from stp.analysis import sprt
+    assert sprt(np.ones(20, bool)) == (True, 4)
+    assert sprt(np.zeros(20, bool)) == (False, 4)
+
+
+def test_rules_known_answers():
+    from stp.analysis import rules
+    R = rules(0.5); s = np.array([1, 0, 1, 1, 0] + [0] * 15, bool)
+    assert R["report as-is"](s) == (True, 0)
+    assert R["any-of-1"](s) == (True, 1)
+    assert R["majority-of-3"](s) == (True, 3)
+    assert R["all-of-3"](s) == (False, 3)
