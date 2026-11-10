@@ -114,8 +114,196 @@
      }
     }
    },
-   "G0_pass": false
+   "G0_pass": false,
+   "G0_amended": {
+    "low": {
+     "100": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "200": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "300": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "360": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "400": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "460": {
+      "n": 100,
+      "realised": 100,
+      "failed": 87
+     }
+    },
+    "medium": {
+     "100": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "200": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "300": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "360": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "400": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "460": {
+      "n": 100,
+      "realised": 100,
+      "failed": 90
+     }
+    },
+    "high": {
+     "100": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "200": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "300": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "360": {
+      "n": 100,
+      "realised": 100,
+      "failed": 0
+     },
+     "400": {
+      "n": 100,
+      "realised": 100,
+      "failed": 28
+     },
+     "460": {
+      "n": 100,
+      "realised": 100,
+      "failed": 98
+     }
+    }
+   },
+   "G0_amended_pass": true,
+   "G1": {
+    "low": {
+     "n": 1000,
+     "realised_share": 1.0,
+     "fail_rate": 0.207,
+     "failures": 207,
+     "auc": 0.993859312462306,
+     "auc_lo": 0.9899382451925172,
+     "auc_hi": 0.997475229857575,
+     "auc_gust_timing": 0.5170300515988328
+    },
+    "medium": {
+     "n": 1000,
+     "realised_share": 1.0,
+     "fail_rate": 0.243,
+     "failures": 243,
+     "auc": 0.9881707628661982,
+     "auc_lo": 0.9829856106372716,
+     "auc_hi": 0.9923834587665091,
+     "auc_gust_timing": 0.5106903468858555
+    },
+    "high": {
+     "n": 1000,
+     "realised_share": 1.0,
+     "fail_rate": 0.28,
+     "failures": 280,
+     "auc": 0.9718005952380951,
+     "auc_lo": 0.961851454827822,
+     "auc_hi": 0.9812008533907516,
+     "auc_gust_timing": 0.5062326388888889
+    }
+   },
+   "G1_pass": {
+    "auc": true,
+    "rate": true,
+    "realisation": true
+   },
+   "G3": {
+    "medium": {
+     "scenarios": 300,
+     "share_intermediate": 0.13,
+     "share_zero": 0.64,
+     "share_one": 0.21666666666666667
+    },
+    "high": {
+     "scenarios": 300,
+     "share_intermediate": 0.18333333333333332,
+     "share_zero": 0.5933333333333334,
+     "share_one": 0.19
+    }
+   },
+   "G3_pass": true,
+   "confirm": {
+    "low": {
+     "n": 1000,
+     "realised_share": 1.0,
+     "fail_rate": 0.223,
+     "failures": 223,
+     "auc": 0.9925550149765396,
+     "auc_lo": 0.9890199654178207,
+     "auc_hi": 0.9956019306064047,
+     "auc_gust_timing": 0.49615919571076517
+    },
+    "medium": {
+     "n": 1000,
+     "realised_share": 1.0,
+     "fail_rate": 0.237,
+     "failures": 237,
+     "auc": 0.9785213818427151,
+     "auc_lo": 0.9703957974867932,
+     "auc_hi": 0.98543477287644,
+     "auc_gust_timing": 0.5058480017253679
+    },
+    "high": {
+     "n": 1000,
+     "realised_share": 1.0,
+     "fail_rate": 0.28,
+     "failures": 280,
+     "auc": 0.9665128968253969,
+     "auc_lo": 0.9555670443746576,
+     "auc_hi": 0.9757207939073007,
+     "auc_gust_timing": 0.5393551587301587
+    }
+   },
+   "confirm_pass": {
+    "auc": true,
+    "rate": true,
+    "realisation": true
+   }
   }
  },
- "frozen": null
+ "frozen": "A"
 }
