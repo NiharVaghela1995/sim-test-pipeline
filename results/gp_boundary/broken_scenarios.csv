@@ -1,0 +1,10 @@
+defect,realised,verdict,gates_failed,expected_subset
+ego without ACC,False,none,controllers outcome_settled,controllers
+cutting car starts in the ego lane,False,none,ego_cruise_before_cut gap_at_cut lane_change_end lane_change_start start_pose start_speed,start_pose
+no lane change,False,none,gap_at_cut lane_change_end lane_change_start outcome_settled,gap_at_cut lane_change_end lane_change_start
+lane change away from the ego,False,none,gap_at_cut lane_change_end lane_change_start outcome_settled,gap_at_cut lane_change_end lane_change_start
+lane change triggered late,False,none,gap_at_cut lane_change_start,gap_at_cut lane_change_start
+cutting car placed 2 m off,False,none,gap_at_cut start_pose,gap_at_cut start_pose
+cutting car 1 m/s off,False,none,cut_speed_held gap_at_cut start_speed,cut_speed_held gap_at_cut start_speed
+ego 1 m/s off,False,none,ego_cruise_before_cut start_speed,ego_cruise_before_cut start_speed
+simulation too short,False,none,lane_change_end outcome_settled,lane_change_end outcome_settled

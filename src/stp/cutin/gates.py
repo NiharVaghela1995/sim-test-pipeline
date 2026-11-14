@@ -34,7 +34,7 @@ def check(tr, p: S.Params, dt, k_min_ttc=None):
     pre = t < S.T_LC - 1e-9
     g["cut_speed_held"] = bool(np.all(np.abs(np.asarray(tr["cv"])[1:][pre[1:]] - p.cut_speed) <= TOL_SPEED))
     moved = np.nonzero(np.abs(cy - y_cut) > 1e-6)[0]
-    shift = np.abs(cy - y_cut)
+    shift = (cy - y_cut) * np.sign(y_ego - y_cut)     # signed: positive towards the ego lane
     crossed = np.nonzero(shift >= S.LINE_SHIFT)[0]
     if len(moved) and len(crossed) and crossed[0] > 0:
         i0 = max(int(moved[0]) - 1, 0)       # last sample before the lateral move: lane change start
