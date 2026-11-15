@@ -1,8 +1,8 @@
 # GP boundary demo: report (2026-11-15)
 
-**Result.** By the rule fixed in the plan, **GP with active learning (GP-AL) helps at every budget.** At 100, 200 and 300 esmini runs it misclassified fewer points than the same GP on a Sobol design or on a random design. It won in 10 of 10 paired seeds at every budget and against both baselines, with Holm-corrected p = 0.0059. Its median error was 0.10–0.19 of the baseline's. Its 95% band contains the reference boundary at 90.1% on average, which just meets the planned "calibrated at 95%" rule. All the misses are on the stretch at small gaps where the margin is not monotone. esmini with this controller is deterministic: 1,500 replicate runs were bitwise identical, and a campaign rebuilt in a clean clone from its manifest was identical.
+**Result.** By the rule fixed in the plan, **GP with active learning (GP-AL) helps at every budget.** At 100, 200 and 300 esmini runs it misclassified fewer points than the same GP on a Sobol design or on a random design. On misclassification it won in 10 of 10 paired seeds at every budget and against both baselines, with Holm-corrected p = 0.0059. Its median misclassification was 0.10–0.19 of the baseline's. Boundary error gives the same verdict (ratios 0.06–0.38). Its 95% band contains the reference boundary at 90.1% on average, which just meets the planned "calibrated at 95%" rule. All the misses are on the stretch at small gaps where the margin is not monotone. esmini with this controller is deterministic: 1,500 replicate runs were bitwise identical, and a campaign rebuilt in a clean clone from its manifest was identical.
 
-Plan: `docs/GP_BOUNDARY_PLAN.md`, committed in `dfc5f44` before any reference, campaign or replication run. Anything decided after it is marked **post hoc**. Every number below comes from a file in `results/gp_boundary/`, named in each section.
+Plan: `docs/GP_BOUNDARY_PLAN.md`, committed in `dfc5f44` before any reference, campaign or replication run. Anything decided after it is marked **post hoc**. Every result below comes from a file in `results/gp_boundary/`, named in each section. Setup values come from the code and `env/` locks, and the controller properties come from the plan's pilot section.
 
 ## Setup (unchanged from the plan)
 
@@ -15,7 +15,7 @@ Plan: `docs/GP_BOUNDARY_PLAN.md`, committed in `dfc5f44` before any reference, c
 - **System under test:** esmini's `ACCController` on the ego, with time gap 1.5 s, set speed equal to the ego speed, and longitudinal control only. The cutting car is scripted.
 - **Rule:** min TTC ≥ 1.5 s (a placeholder). Margin = min TTC − 1.5 s, with TTC capped at 6 s.
 
-Two properties of this controller matter for the results:
+Two properties of this controller, found in the pilot (plan, "Known properties"), matter for the results:
 
 - **It reacts earlier at small gaps.** At 5 m it brakes while the cutting car is still 2.66 m to the side; from 7 m up, only at about 1.75 m. So at small gaps the margin is not monotone in gap: it rises, dips and rises again. In the reference, 109 of the 332 gap lines that have a boundary cross zero more than once (computed with `reference.crossings` on `reference_grid.npz`).
 - **It sometimes brakes harder than its limit.** Below about 0.7 m bumper gap it drops speed in one step, well beyond its 6 m/s² limit. A gate rejects a run if this happens before the minimum TTC. The over-braking section below covers what it does to the results.
@@ -70,7 +70,7 @@ Each arm has 10 seeds × 300 runs, scored every 20 runs against the reference. S
 | Runs | GP-AL | Sobol + GP | Random + GP |
 |---|---|---|---|
 | 100 | 0.19 (0.06–0.46) | 0.55 (0.28–0.88) | 0.59 (0.13–1.36) |
-| 200 | 0.027 (0.007–0.075) | 0.33 (0.06–0.67) | 0.39 (0.16–1.03) |
+| 200 | 0.027 (0.006–0.075) | 0.33 (0.06–0.67) | 0.39 (0.16–1.03) |
 | 300 | 0.029 (0.012–0.054) | 0.22 (0.11–0.33) | 0.27 (0.09–0.77) |
 
 **Planned tests on misclassification** (H1, H2):
@@ -147,15 +147,15 @@ So the band is honest where the boundary is smooth and too confident in the non-
 
 **esmini with this ACC is deterministic**, and all replicates of a point give the same margin to the last bit:
 
-- **Points:** 150 points closest to the boundary (`replication.csv`, `replication.json`): 100 GP-AL runs with the smallest |margin|, the closest being 5.1 × 10⁻⁵ s from the threshold, and 50 reference points next to a sign change.
+- **Points:** 150 points closest to the boundary (`replication.csv`, `replication.json`): the 10 runs with the smallest |margin| from each of the 10 GP-AL campaigns (100 runs), the closest being 5.1 × 10⁻⁵ s from the threshold, and 50 reference points next to a sign change.
 - **Runs:** each point was rerun 10 times, giving 1,500 runs. They ran in sequence and in a 4-worker pool in shuffled order. Two of the 10 used esmini seed 987 instead of 0.
 - **Result:** 150 of 150 points were bitwise identical in every repeat. The largest difference was 0.0 and all verdicts matched.
 
-This is the expected result and it is a good one. The pass/fail verdict at a point is a property of the scenario, so no noise model or replicate allocation is needed. That differs from Project 2, where noise was estimated from 2–5 replicates.
+This is the expected result and it is a good one. The pass/fail verdict at a point is a property of the scenario, so no noise model or replicate allocation is needed. That differs from Project 2, where noise was estimated from 2–5 replicates (CLAIM_CORRECTIONS.md §1, as listed in the plan).
 
 **Rerun from manifest** (`determinism_rerun.json`). `scripts/rerun_clean.sh` takes a fresh git clone of commit `68450d7`, builds a fresh `.venv` from `env/requirements.lock`, checks the esmini zip sha256, and rebuilds GP-AL seed 0 (300 runs) from `manifests/gp_al_0.json` alone. The result was **identical**:
 
-- all 300 run parameters, .xosc hashes and margins match;
+- `campaign.rerun` compared all 300 run parameters, .xosc hashes and margins with the manifest and found no difference (the record stores the verdict, `problems: []`, and the hash);
 - the final prediction hash on the reference grid matches;
 - the run took 1 min 33 s.
 
@@ -169,13 +169,13 @@ Source: `overbrake.json`, `src/stp/cutin/overbrake.py`.
 
 - All of them fail the rule clearly: margin −1.43 to −1.01 s, so min TTC ≤ 0.49 s.
 - They sit at gaps of 5–9 m and relative speeds of −10 to −7.5 m/s.
-- Each is at least 10.5 m below its line's boundary gap (median 13.2 m).
+- Each is at least 10.48 m below its line's boundary gap (median 13.2 m).
 - None has |margin| < 0.5 s, against 16.0% of all grid points.
 
 **Leaving them out:**
 
 - **Reference boundary:** g* changes by 0.000 m on every line.
-- **Comparison:** over-braking runs are dropped from each campaign's training data, with the designs kept as run, and over-braking grid points are dropped from scoring. All 12 tests on misclassification and boundary error still pass. The verdict is unchanged: GP-AL helps at 100, 200 and 300 runs, with median misclassification within 0.0001 of section 3 for GP-AL and within 0.0016 for Sobol and random.
+- **Comparison:** over-braking runs are dropped from each campaign's training data, with the designs kept as run, and over-braking grid points are dropped from scoring. All 12 tests on misclassification and boundary error still pass. The verdict is unchanged: GP-AL helps at 100, 200 and 300 runs, with median misclassification within 0.0001 of section 3 for GP-AL and within 0.0017 for Sobol and random.
 
 The over-braking is a defect of the controller model, not of the scenario, and it doesn't touch the boundary.
 
