@@ -1,0 +1,101 @@
+{
+ "post_hoc": true,
+ "arm": "gp_al",
+ "n": 300,
+ "level": 0.95,
+ "per_seed": [
+  {
+   "seed": 0,
+   "miss_share": 0.11978221415607986,
+   "miss_multi": 0.20121951219512196,
+   "miss_single": 0.0,
+   "miss_gap_max": 9.954317480804324,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  },
+  {
+   "seed": 1,
+   "miss_share": 0.11978221415607986,
+   "miss_multi": 0.20121951219512196,
+   "miss_single": 0.0,
+   "miss_gap_max": 9.954317480804324,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  },
+  {
+   "seed": 2,
+   "miss_share": 0.0998185117967332,
+   "miss_multi": 0.1676829268292683,
+   "miss_single": 0.0,
+   "miss_gap_max": 9.403234740718581,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  },
+  {
+   "seed": 3,
+   "miss_share": 0.07259528130671507,
+   "miss_multi": 0.12195121951219512,
+   "miss_single": 0.0,
+   "miss_gap_max": 8.90165078069437,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  },
+  {
+   "seed": 4,
+   "miss_share": 0.07985480943738657,
+   "miss_multi": 0.13414634146341464,
+   "miss_single": 0.0,
+   "miss_gap_max": 9.350212146568182,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  },
+  {
+   "seed": 5,
+   "miss_share": 0.08348457350272233,
+   "miss_multi": 0.1402439024390244,
+   "miss_single": 0.0,
+   "miss_gap_max": 9.350212146568182,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  },
+  {
+   "seed": 6,
+   "miss_share": 0.05807622504537205,
+   "miss_multi": 0.0975609756097561,
+   "miss_single": 0.0,
+   "miss_gap_max": 8.882470331056092,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  },
+  {
+   "seed": 7,
+   "miss_share": 0.14519056261343014,
+   "miss_multi": 0.24390243902439024,
+   "miss_single": 0.0,
+   "miss_gap_max": 9.744591455828802,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  },
+  {
+   "seed": 8,
+   "miss_share": 0.12159709618874773,
+   "miss_multi": 0.20426829268292682,
+   "miss_single": 0.0,
+   "miss_gap_max": 9.902424963154669,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  },
+  {
+   "seed": 9,
+   "miss_share": 0.0925589836660617,
+   "miss_multi": 0.15548780487804878,
+   "miss_single": 0.0,
+   "miss_gap_max": 8.859385754036666,
+   "multi_share": 0.5952813067150635,
+   "points": 551
+  }
+ ],
+ "mean_miss_single": 0.0,
+ "mean_miss_multi": 0.16676829268292687,
+ "max_miss_gap": 9.954317480804324
+}

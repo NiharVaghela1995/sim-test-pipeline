@@ -38,6 +38,27 @@ Which code does what, which master's stage and problem each piece serves, and ho
 | `src/stp/v2/plots.py` | v2 figures | Reporting | Yes | None |
 | `scripts/run_campaign_v2.sh` | Restart loop under the 8-hour cap, with the realisation pause | S05-P05 | Yes | None |
 
+## GP boundary demo
+
+Cut-in with esmini's ACC as the SUT: plan `docs/GP_BOUNDARY_PLAN.md`, report `docs/GP_BOUNDARY_REPORT.md`, outputs in `results/gp_boundary/`.
+
+| Module | What it does | Tests |
+|---|---|---|
+| `src/stp/cutin/scenario.py` | Logical cut-in scenario: parameters, road, .xosc writer, deliberate defects | TC: known answers, heading-loss correction |
+| `src/stp/cutin/runner.py` | Runs one point through the esmini library; TTC KPI and margin | TC: KPI on constructed traces, determinism |
+| `src/stp/cutin/gates.py` | Realisation check, 13 gates | TC: 9 broken scenarios, over-braking |
+| `src/stp/cutin/broken.py` | Writes the broken scenarios and what caught them | TC |
+| `src/stp/cutin/jobs.py` | Resumable parallel batches (v2 checkpoint helpers) | TG: torn line, foreign rows |
+| `src/stp/cutin/reference.py`, `resolution.py` | Dense reference grid, boundary rule, resolution check | TG: boundary rule, crossings |
+| `src/stp/cutin/gp.py` | GP fit, straddle acquisition, batch selection, seeds | TG: plane boundary, straddle, batches, seeds |
+| `src/stp/cutin/campaign.py` | GP-AL, Sobol and random campaigns, manifests, rerun from manifest | TG: rerun identical in a fresh process, detects changes |
+| `src/stp/cutin/metrics.py`, `analysis.py`, `plots.py` | Scores against the reference, planned tests, figures | TG: metrics on perfect and constant fields |
+| `src/stp/cutin/replicate.py`, `critical.py` | Replication of boundary points, critical .xosc files | None |
+| `src/stp/cutin/overbrake.py`, `band_misses.py` | Post hoc checks: over-braking runs, where the band misses | None |
+| `scripts/rerun_clean.sh` | Rerun one campaign from its manifest in a clean clone | Run once, recorded in `determinism_rerun.json` |
+
+TC = `tests/test_cutin.py`, TG = `tests/test_gp_boundary.py`.
+
 ## Environment and records
 
 | Item | What it does | Stage and problem slice |

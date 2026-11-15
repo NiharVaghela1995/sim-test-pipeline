@@ -12,4 +12,4 @@ scripts/setup_env.sh                  # about 80 MB, no sudo
 scripts/run_campaign.sh               # resumable, checkpoints every 100 runs
 ```
 
-Plan and input ranges were fixed before the main run: `docs/PREREG.md`, `docs/CALIBRATION.md`. v1, a noise-dominated cautionary result: `docs/REPORT.md`. The corrected campaign, with verdict rules scored against ground truth: `docs/v2/REPORT.md`, with its plan in `docs/v2/PLAN.md`.
+Plan and input ranges were fixed before the main run: `docs/PREREG.md`, `docs/CALIBRATION.md`. v1, a noise-dominated cautionary result: `docs/REPORT.md`. The corrected campaign, with verdict rules scored against ground truth: `docs/v2/REPORT.md`, with its plan in `docs/v2/PLAN.md`. A GP boundary demo on a cut-in with esmini's ACC (GP with active learning against Sobol and random designs): `docs/GP_BOUNDARY_REPORT.md`, plan in `docs/GP_BOUNDARY_PLAN.md`.
