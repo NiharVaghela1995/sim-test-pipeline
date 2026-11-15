@@ -1,0 +1,11 @@
+{
+ "manifest": "results/gp_boundary/manifests/gp_al_0.json",
+ "commit": "68450d7001a3ac4bd3e8d2d402aaccd0d298cf80",
+ "how": "scripts/rerun_clean.sh: fresh git clone, fresh .venv from env/requirements.lock, esmini zip sha256 checked",
+ "manifest_final_prediction_sha256": "e48a0fb560b73729d30bd01c047c47e60bc7ccd07bfe5695a41a6e27ae642acd",
+ "identical": true,
+ "problems": [],
+ "runs": 300,
+ "final_prediction_sha256": "e48a0fb560b73729d30bd01c047c47e60bc7ccd07bfe5695a41a6e27ae642acd",
+ "wall_time": "1m33s"
+}
