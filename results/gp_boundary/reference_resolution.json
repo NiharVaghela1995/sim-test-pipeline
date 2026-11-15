@@ -1,0 +1,11 @@
+{
+ "lines": 651,
+ "coarse_vs_full_mean": 0.02471330982813637,
+ "coarse_vs_full_p90": 0.0004234597810537366,
+ "coarse_vs_full_max": 5.364732818818764,
+ "bisect_lines": 30,
+ "bisect_tol": 0.01,
+ "bisect_mean": 0.0020197734627533494,
+ "bisect_max": 0.004286817384372199,
+ "bisect_runs": 150
+}
