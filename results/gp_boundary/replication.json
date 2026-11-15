@@ -1,0 +1,8 @@
+{
+ "points": 150,
+ "runs": 1500,
+ "bitwise_identical": 150,
+ "verdicts_match": 150,
+ "max_abs_diff": 0.0,
+ "smallest_abs_margin": 5.148771149454667e-05
+}
