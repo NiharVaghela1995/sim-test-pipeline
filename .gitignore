@@ -6,3 +6,10 @@ __pycache__/
 .pytest_cache/
 log.txt
 tests/output/
+
+# Environments and caches (never commit)
+.venvs/
+venv/
+.cache/
+.ipynb_checkpoints/
+node_modules/
