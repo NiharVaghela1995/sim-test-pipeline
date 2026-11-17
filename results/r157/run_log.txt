@@ -1,0 +1,537 @@
+== broken
+{
+ "clean_realised": true,
+ "broken": [
+  {
+   "defect": "ego without ACC",
+   "realised": false,
+   "failed_gates": [
+    "controllers",
+    "outcome_settled"
+   ]
+  },
+  {
+   "defect": "cutting car starts in the ego lane",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_lc",
+    "ego_cruise_before_cut",
+    "gap_at_cut",
+    "lane_change_end",
+    "lane_change_start",
+    "start_pose",
+    "start_speed",
+    "ttc_li_realised",
+    "visibility"
+   ]
+  },
+  {
+   "defect": "no lane change",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_lc",
+    "gap_at_cut",
+    "lane_change_end",
+    "lane_change_start",
+    "outcome_settled",
+    "ttc_li_realised",
+    "visibility"
+   ]
+  },
+  {
+   "defect": "lane change away from the ego",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_lc",
+    "gap_at_cut",
+    "lane_change_end",
+    "lane_change_start",
+    "outcome_settled",
+    "ttc_li_realised",
+    "visibility"
+   ]
+  },
+  {
+   "defect": "lane change triggered late",
+   "realised": false,
+   "failed_gates": [
+    "gap_at_cut",
+    "lane_change_start",
+    "ttc_li_realised"
+   ]
+  },
+  {
+   "defect": "cutting car placed 2 m off",
+   "realised": false,
+   "failed_gates": [
+    "gap_at_cut",
+    "start_pose",
+    "ttc_li_realised"
+   ]
+  },
+  {
+   "defect": "cutting car 1 m/s off",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_held",
+    "cut_speed_lc",
+    "gap_at_cut",
+    "start_speed",
+    "ttc_li_realised"
+   ]
+  },
+  {
+   "defect": "ego 1 m/s off",
+   "realised": false,
+   "failed_gates": [
+    "ego_cruise_before_cut",
+    "start_speed"
+   ]
+  },
+  {
+   "defect": "simulation too short",
+   "realised": false,
+   "failed_gates": [
+    "lane_change_end"
+   ]
+  },
+  {
+   "defect": "cutter 1 m/s slower than designed",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_held",
+    "cut_speed_lc",
+    "gap_at_cut",
+    "start_speed",
+    "ttc_li_realised"
+   ]
+  }
+ ],
+ "all_caught": true
+}
+== reference
+reference: 19056 runs in 343 s
+{'points': 27120, 'applicable': 19056, 'realised': 18318, 'fail_share': 0.015012555955890381, 'collided': 0, 'not_realised_by_gate': {'dynamics_valid_to_kpi': 738}}
+== campaigns
+gp_al_0: 30 runs in 1 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 1 s
+gp_al_0: 10 runs in 0 s
+gp_al_0: 10 runs in 0 s
+gp_al_1: 30 runs in 1 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_1: 10 runs in 0 s
+gp_al_2: 30 runs in 1 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_2: 10 runs in 0 s
+gp_al_3: 30 runs in 1 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_3: 10 runs in 0 s
+gp_al_4: 30 runs in 1 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_4: 10 runs in 0 s
+gp_al_5: 30 runs in 1 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_5: 10 runs in 0 s
+gp_al_6: 30 runs in 1 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_6: 10 runs in 0 s
+gp_al_7: 30 runs in 1 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_7: 10 runs in 0 s
+gp_al_8: 30 runs in 1 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_8: 10 runs in 0 s
+gp_al_9: 30 runs in 1 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+gp_al_9: 10 runs in 0 s
+sobol_0: 300 runs in 5 s
+sobol_1: 300 runs in 5 s
+sobol_2: 300 runs in 5 s
+sobol_3: 300 runs in 5 s
+sobol_4: 300 runs in 5 s
+sobol_5: 300 runs in 5 s
+sobol_6: 300 runs in 5 s
+sobol_7: 300 runs in 5 s
+sobol_8: 300 runs in 5 s
+sobol_9: 300 runs in 5 s
+random_0: 300 runs in 5 s
+random_1: 300 runs in 5 s
+random_2: 300 runs in 5 s
+random_3: 300 runs in 5 s
+random_4: 300 runs in 5 s
+random_5: 300 runs in 5 s
+random_6: 300 runs in 5 s
+random_7: 300 runs in 5 s
+random_8: 300 runs in 5 s
+random_9: 300 runs in 5 s
+== score
+[
+ {
+  "baseline": "sobol",
+  "n": 100,
+  "wins": 10,
+  "ties": 0,
+  "median_ratio": 0.13190517616354935,
+  "gp_al_median": 0.0006005022382356152,
+  "base_median": 0.004312697892783055,
+  "p": 0.0009765625,
+  "p_holm": 0.005859375,
+  "helps": true
+ },
+ {
+  "baseline": "sobol",
+  "n": 200,
+  "wins": 10,
+  "ties": 0,
+  "median_ratio": 0.19940476190476192,
+  "gp_al_median": 0.000491320013101867,
+  "base_median": 0.0022655311715252756,
+  "p": 0.0009765625,
+  "p_holm": 0.005859375,
+  "helps": true
+ },
+ {
+  "baseline": "sobol",
+  "n": 300,
+  "wins": 10,
+  "ties": 0,
+  "median_ratio": 0.3142633228840125,
+  "gp_al_median": 0.000491320013101867,
+  "base_median": 0.0014739600393056012,
+  "p": 0.0009765625,
+  "p_holm": 0.005859375,
+  "helps": true
+ },
+ {
+  "baseline": "random",
+  "n": 100,
+  "wins": 10,
+  "ties": 0,
+  "median_ratio": 0.12962234461054287,
+  "gp_al_median": 0.0006005022382356152,
+  "base_median": 0.0040124467736652476,
+  "p": 0.0009765625,
+  "p_holm": 0.005859375,
+  "helps": true
+ },
+ {
+  "baseline": "random",
+  "n": 200,
+  "wins": 10,
+  "ties": 0,
+  "median_ratio": 0.19183673469387752,
+  "gp_al_median": 0.000491320013101867,
+  "base_median": 0.0028114422971940167,
+  "p": 0.0009765625,
+  "p_holm": 0.005859375,
+  "helps": true
+ },
+ {
+  "baseline": "random",
+  "n": 300,
+  "wins": 10,
+  "ties": 0,
+  "median_ratio": 0.21782608695652173,
+  "gp_al_median": 0.000491320013101867,
+  "base_median": 0.0018560978272737197,
+  "p": 0.0009765625,
+  "p_holm": 0.005859375,
+  "helps": true
+ }
+]
+== compliance
+holdout: 200 runs in 3 s
+{
+ "margin_1m": {
+  "share": {
+   "compliant": 0.9834588928922371,
+   "violating": 0.013593187029151655,
+   "undecided": 0.002947920078611202
+  },
+  "check": {
+   "compliant_truly_pass": 1.0,
+   "violating_truly_fail": 0.9959839357429718,
+   "undecided_truly_fail": 0.5
+  },
+  "truth_fail_share": 0.015012555955890381
+ },
+ "no_collision": {
+  "share": {
+   "compliant": 1.0,
+   "violating": 0.0,
+   "undecided": 0.0
+  },
+  "check": {
+   "compliant_truly_pass": 1.0,
+   "violating_truly_fail": null,
+   "undecided_truly_fail": null
+  },
+  "truth_fail_share": 0.0
+ },
+ "holdout": {
+  "runs": 200,
+  "realised": 197,
+  "compliant_n": 196,
+  "compliant_failed": 0,
+  "compliant_wrong_upper95": 0.015168135514885519,
+  "violating_n": 1,
+  "violating_passed": 0,
+  "violating_wrong_upper95": 0.95,
+  "undecided_n": 0,
+  "fails_total": 1
+ },
+ "manifest_sha256": "bcc54d072af83f2a7598c82504971d818a49a5f0442ba65b9d3b34d6cb5fbff4"
+}
+== replicate
+replicate: 250 runs in 4 s
+{'points': 50, 'reruns': 250, 'max_margin_spread': 0.0, 'verdicts_all_identical': True}
+EXIT 0

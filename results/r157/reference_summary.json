@@ -1,0 +1,10 @@
+{
+ "points": 27120,
+ "applicable": 19056,
+ "realised": 18318,
+ "fail_share": 0.015012555955890381,
+ "collided": 0,
+ "not_realised_by_gate": {
+  "dynamics_valid_to_kpi": 738
+ }
+}

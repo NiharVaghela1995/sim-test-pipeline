@@ -1,0 +1,41 @@
+{
+ "margin_1m": {
+  "share": {
+   "compliant": 0.9834588928922371,
+   "violating": 0.013593187029151655,
+   "undecided": 0.002947920078611202
+  },
+  "check": {
+   "compliant_truly_pass": 1.0,
+   "violating_truly_fail": 0.9959839357429718,
+   "undecided_truly_fail": 0.5
+  },
+  "truth_fail_share": 0.015012555955890381
+ },
+ "no_collision": {
+  "share": {
+   "compliant": 1.0,
+   "violating": 0.0,
+   "undecided": 0.0
+  },
+  "check": {
+   "compliant_truly_pass": 1.0,
+   "violating_truly_fail": null,
+   "undecided_truly_fail": null
+  },
+  "truth_fail_share": 0.0
+ },
+ "holdout": {
+  "runs": 200,
+  "realised": 197,
+  "compliant_n": 196,
+  "compliant_failed": 0,
+  "compliant_wrong_upper95": 0.015168135514885519,
+  "violating_n": 1,
+  "violating_passed": 0,
+  "violating_wrong_upper95": 0.95,
+  "undecided_n": 0,
+  "fails_total": 1
+ },
+ "manifest_sha256": "bcc54d072af83f2a7598c82504971d818a49a5f0442ba65b9d3b34d6cb5fbff4"
+}
