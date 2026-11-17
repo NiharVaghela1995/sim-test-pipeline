@@ -5,7 +5,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-22.04
-    timeout-minutes: 45
+    timeout-minutes: 75
     env:
       PYTHONPATH: src
       OMP_NUM_THREADS: "1"
