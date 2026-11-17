@@ -12,6 +12,7 @@ CPU only. Each notebook runs from a clean kernel in under five minutes; CI execu
 | [13_initial_designs](13_initial_designs.ipynb) | 13, initial design | random, LHS, maximin LHS, Sobol', FSSF, 2⁸⁻⁴ resolution IV fraction, Morris screening against a noise null, n₀ at fixed budget |
 | [14_surrogates](14_surrogates.ipynb) | 14, surrogate model | GP regression (Matérn, squared-exp.), two-stage heteroskedastic GP, GP classification (latent vs averaged rule), random forest, SVM + Platt, permutation null, band calibration |
 | [15_acquisition](15_acquisition.ipynb) | 15, acquisition function | straddle, MCU, MEE, EFF and contour EI, tIMSE, SUR (J₁), failure-seeking EI, LSE, edge oversampling, naive vs pending-variance batches, GP-Hedge, P(valid) weighting for crashing runs |
+| [17_replication](17_replication.ipynb) | 17, explore or replicate | fixed r, OCBA against threshold allocation and the exact optimum, APT (warm start vs starvation), KL allocation, replication with and without a noise model, one-step IMSPE replicate-or-explore, deterministic and noisy esmini |
 
 ## Shared harness: `failreg/`
 
