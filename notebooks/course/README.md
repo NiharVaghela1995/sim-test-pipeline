@@ -11,6 +11,7 @@ CPU only. Each notebook runs from a clean kernel in under five minutes; CI execu
 | [32_evaluation_harness](32_evaluation_harness.ipynb) | 32, evaluation methodology | test problems, metrics, paired seeds, IQM with bootstrap intervals, Holm, runs to target, calibration, ablations |
 | [13_initial_designs](13_initial_designs.ipynb) | 13, initial design | random, LHS, maximin LHS, Sobol', FSSF, 2⁸⁻⁴ resolution IV fraction, Morris screening against a noise null, n₀ at fixed budget |
 | [14_surrogates](14_surrogates.ipynb) | 14, surrogate model | GP regression (Matérn, squared-exp.), two-stage heteroskedastic GP, GP classification (latent vs averaged rule), random forest, SVM + Platt, permutation null, band calibration |
+| [15_acquisition](15_acquisition.ipynb) | 15, acquisition function | straddle, MCU, MEE, EFF and contour EI, tIMSE, SUR (J₁), failure-seeking EI, LSE, edge oversampling, naive vs pending-variance batches, GP-Hedge, P(valid) weighting for crashing runs |
 
 ## Shared harness: `failreg/`
 
