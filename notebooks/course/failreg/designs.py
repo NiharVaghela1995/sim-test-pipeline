@@ -1,4 +1,4 @@
-"""Initial designs and non-adaptive baselines on [0, 1]^d (course Module 13, section 2)."""
+"""Initial designs and non-adaptive baselines on [0, 1]^d."""
 import itertools
 import warnings
 import numpy as np

@@ -1,4 +1,4 @@
-"""Scoring an estimated failure region against the answer key (course Module 32, section 2).
+"""Scoring an estimated failure region against the answer key.
 
 A test point is positive when it fails. False-safe = a failing point predicted safe; false-unsafe = a safe point
 predicted failing.

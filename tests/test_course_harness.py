@@ -138,7 +138,7 @@ def test_sur_prefers_runs_near_the_boundary():
 
 # ------------------------------------------------------------------ replication
 def test_ocba_targets_the_best_threshold_rule_the_boundary():
-    """Course Module 17: sites 0, 0.48, 0.9, threshold 0.5. OCBA does not put most runs on 0.48; the threshold rule does."""
+    """Sites 0, 0.48, 0.9, threshold 0.5. OCBA does not put most runs on 0.48; the threshold rule does."""
     m, s = [0.0, 0.48, 0.9], [1.0, 1.0, 1.0]
     o = R.ocba(m, s, 300); t = R.threshold_alloc(m, s, 0.5, 300, eps=0.01)
     assert np.argmax(o) != 1 and np.argmax(t) == 1

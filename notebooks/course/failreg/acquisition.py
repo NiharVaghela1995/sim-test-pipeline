@@ -1,4 +1,4 @@
-"""Acquisition criteria for a failure boundary (course Module 15). The surrogate gives latent mean mu and sd at pool
+"""Acquisition criteria for a failure boundary. The surrogate gives latent mean mu and sd at pool
 points, the threshold is h (a scalar or one value per point). Every score is "run where largest".
 
   mee         misclassification probability Phi(-|mu - h| / sd); Lyu et al. 2021 eq. 3.2 (MEE)

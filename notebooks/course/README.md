@@ -1,18 +1,20 @@
 # Course notebooks: finding a failure region with few simulator runs
 
-Runnable companions to course Modules 13, 14, 15, 17 and 32. Each notebook implements the methods its module names, from
-the papers it cites, on test problems with a known failure region, and ends with one small esmini cut-in case that reuses
-this repo's pipeline (`src/stp`). Theory stays in the course modules; the notebooks keep the text short.
+Five runnable notebooks on finding a failure region with few simulator runs: initial designs, surrogate models,
+acquisition functions, replication, and how to evaluate such a method. Each notebook implements methods from the papers it
+cites, on test problems with a known failure region, and ends with one small esmini cut-in case that reuses this repo's
+pipeline (`src/stp`). The text is kept short. The background comes from the author's own study notes, which are not
+public; the numbers 13–32 are those notes' chapter numbers.
 
 CPU only. Each notebook runs from a clean kernel in under five minutes; CI executes all of them.
 
-| Notebook | Course module | Methods |
+| Notebook | Topic | Methods |
 |---|---|---|
-| [32_evaluation_harness](32_evaluation_harness.ipynb) | 32, evaluation methodology | test problems, metrics, paired seeds, IQM with bootstrap intervals, Holm, runs to target, calibration, ablations |
-| [13_initial_designs](13_initial_designs.ipynb) | 13, initial design | random, LHS, maximin LHS, Sobol', FSSF, 2⁸⁻⁴ resolution IV fraction, Morris screening against a noise null, n₀ at fixed budget |
-| [14_surrogates](14_surrogates.ipynb) | 14, surrogate model | GP regression (Matérn, squared-exp.), two-stage heteroskedastic GP, GP classification (latent vs averaged rule), random forest, SVM + Platt, permutation null, band calibration |
-| [15_acquisition](15_acquisition.ipynb) | 15, acquisition function | straddle, MCU, MEE, EFF and contour EI, tIMSE, SUR (J₁), failure-seeking EI, LSE, edge oversampling, naive vs pending-variance batches, GP-Hedge, P(valid) weighting for crashing runs |
-| [17_replication](17_replication.ipynb) | 17, explore or replicate | fixed r, OCBA against threshold allocation and the exact optimum, APT (warm start vs starvation), KL allocation, replication with and without a noise model, one-step IMSPE replicate-or-explore, deterministic and noisy esmini |
+| [32_evaluation_harness](32_evaluation_harness.ipynb) | evaluation methodology | test problems, metrics, paired seeds, IQM with bootstrap intervals, Holm, runs to target, calibration, ablations |
+| [13_initial_designs](13_initial_designs.ipynb) | initial design | random, LHS, maximin LHS, Sobol', FSSF, 2⁸⁻⁴ resolution IV fraction, Morris screening against a noise null, n₀ at fixed budget |
+| [14_surrogates](14_surrogates.ipynb) | surrogate model | GP regression (Matérn, squared-exp.), two-stage heteroskedastic GP, GP classification (latent vs averaged rule), random forest, SVM + Platt, permutation null, band calibration |
+| [15_acquisition](15_acquisition.ipynb) | acquisition function | straddle, MCU, MEE, EFF and contour EI, tIMSE, SUR (J₁), failure-seeking EI, LSE, edge oversampling, naive vs pending-variance batches, GP-Hedge, P(valid) weighting for crashing runs |
+| [17_replication](17_replication.ipynb) | explore or replicate | fixed r, OCBA against threshold allocation and the exact optimum, APT (warm start vs starvation), KL allocation, replication with and without a noise model, one-step IMSPE replicate-or-explore, deterministic and noisy esmini |
 
 ## Shared harness: `failreg/`
 

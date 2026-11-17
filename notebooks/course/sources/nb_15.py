@@ -1,8 +1,9 @@
 CELLS = [
 ("md", r"""
-# Module 15: acquisition functions (straddle, LSE, misclassification, contour criteria, SUR, failure-seeking EI, portfolios, unknown constraints)
+# 15 · Acquisition functions (straddle, LSE, misclassification, contour criteria, SUR, failure-seeking EI, portfolios, unknown constraints)
 
-**Theory:** course Module 15. For a boundary, the useful question is "where am I unsure which side of the threshold the
+**Theory:** Bryan et al. 2005; Gotovos et al. 2013; Bect et al. 2012; Lyu, Binois & Ludkovski 2021 (full references at the
+end). For a boundary, the useful question is "where am I unsure which side of the threshold the
 point is on?" The criteria below answer it differently, mostly through t = |μ − h|/σ, and differ in how much they explore.
 Harness: `failreg/acquisition.py` (notebook 32). CPU only, about three minutes.
 
@@ -140,8 +141,7 @@ print(f"{time.time() - t:.0f} s")
 
 Each criterion (straddle, MEE, failure-seeking EI) nominates a batch; one is run, chosen with probability ∝ exp(η·gain),
 η = 1. Hoffman et al. reward each nominee with the updated GP mean there, which suits maximisation, not a boundary. Here the
-reward is −mean |μ' − h|/sd(y) at the nominees under the refitted model (own choice; a boundary reward is an open question,
-Module 15, §3).
+reward is −mean |μ' − h|/sd(y) at the nominees under the refitted model (own choice; a boundary reward is an open question).
 """),
 ("code", r"""
 NOM = {"straddle": lambda mu, sd, h, y: A.straddle(mu, sd, h), "MEE": lambda mu, sd, h, y: A.mee(mu, sd, h), "EI": lambda mu, sd, h, y: A.ei_fail(mu, sd, np.nanmin(y))}

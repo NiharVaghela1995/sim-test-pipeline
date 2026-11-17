@@ -1,4 +1,4 @@
-"""Surrogates (course Module 14). Margin models return (mu, sd) of the latent mean margin, noise excluded;
+"""Surrogates. Margin models return (mu, sd) of the latent mean margin, noise excluded;
 classifiers return P(fail).
 
   GPR      constant x Matern 5/2 with one length scale per input + white noise; marginal likelihood with seeded restarts

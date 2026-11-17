@@ -1,6 +1,6 @@
 # Test design: UN R157 cut-in rule on the esmini ACC cut-in (2026-11-16)
 
-**Source.** UN Regulation No. 157, Automated Lane Keeping Systems, E/ECE/TRANS/505/Rev.3/Add.156, 4 March 2021 (the original version; the document states it is a documentation tool and that the authentic text is ECE/TRANS/WP.29/2020/81). Local copy: `~/Documents/03_Master_thesis/03_Literature/E_Scenario_Based_VnV_Foundations/UNECE_2021_R157_ALKS.pdf`; printed page = PDF page. Later amendments (for example higher speeds) were **not** checked and are not used. Code: `src/stp/r157/design.py`, `src/stp/r157/runner.py`.
+**Source.** UN Regulation No. 157, Automated Lane Keeping Systems, E/ECE/TRANS/505/Rev.3/Add.156, 4 March 2021 (the original version; the document states it is a documentation tool and that the authentic text is ECE/TRANS/WP.29/2020/81).; printed page = PDF page. Later amendments (for example higher speeds) were **not** checked and are not used. Code: `src/stp/r157/design.py`, `src/stp/r157/runner.py`.
 
 ## Rule → KPI → threshold → parameters
 

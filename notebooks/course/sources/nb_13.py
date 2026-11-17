@@ -1,8 +1,9 @@
 CELLS = [
 ("md", r"""
-# Module 13: initial designs (Sobol, Latin hypercube, factorial designs, Morris screening)
+# 13 · Initial designs (Sobol, Latin hypercube, factorial designs, Morris screening)
 
-**Theory:** course Module 13. Before any model exists, only geometry can place the first runs. This notebook builds each
+**Theory:** Santner, Williams & Notz 2018; Shang & Apley 2020; Wu & Hamada 2021; Saltelli et al. 2008; Batsch et al. 2019
+(full references at the end). Before any model exists, only geometry can place the first runs. This notebook builds each
 design, checks its defining property, measures what it does to the first surrogate, and ends with the esmini cut-in.
 Harness: `failreg/` (notebook 32). CPU only, about one minute.
 """),
@@ -64,7 +65,7 @@ print("corner outcomes (fails?):", pc.fails(C2).astype(int), "- no corner lies n
 r = 10 trajectories on a p = 4 level grid, Δ = p / (2(p − 1)) = 2/3, so r(d + 1) = 90 runs at d = 8 (Saltelli et al. 2008).
 μ* = mean |EE| ranks the inputs, σ flags non-linearity or interaction. Test: the 3-input car-following gap (initial gap,
 closing speed, reaction time) plus 5 inert inputs. Then the same with run-to-run noise (sd 5 m), against a pure-noise null
-(μ* of noise alone, 200 draws): screening needs signal (Module 13, §3).
+(μ* of noise alone, 200 draws): screening needs signal.
 """),
 ("code", r"""
 d = 8; Xm, which, delta = D.morris(d, r=10, p=4, seed=0)

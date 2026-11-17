@@ -143,6 +143,19 @@ Per labelled grid point, runs until a verdict on "p(x) ≥ 0.10?". Attempts incl
 - **p is conditional on a realised run.** Unrealised runs (4–12 %) are left out of p and reported separately; they cluster at the boundary.
 - One scenario family, one controller, α = 0.10, one budget (300), 10 seeds.
 
+## Provenance: uncommitted code at run time
+
+All 120 campaign manifests (`results/noise/manifests/*/*.json`) record `code_commit` `51bba8f` with
+`code_dirty: true`: when the campaigns ran, `src/` or `env/` had changes that were not committed. Git did not record what
+they were. Between `51bba8f` and the commit that added these results (`d8a9d42`), the only change to `src/` and `env/` is
+one new file, `src/stp/noise/plots.py`; no file the campaigns use was edited. The likely cause is that this file was
+present but not yet committed. That is an inference, not a record.
+
+Spot check (`results/noise/clean_rerun_spotcheck.json`): campaign `mid/het_al_0` (heteroskedastic GP, active learning,
+300 runs) was rerun in a fresh clone of the clean commit `91d62b7`, with a freshly built environment. All 300 runs
+match the manifest: same inputs, seeds and realisation flags, and identical margins (largest absolute difference 0.0).
+The rerun took 187 s on 4 workers. The other 119 campaigns were not rerun.
+
 ## Reproduce
 
 ```bash

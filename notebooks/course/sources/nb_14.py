@@ -1,8 +1,9 @@
 CELLS = [
 ("md", r"""
-# Module 14: surrogate models (GP regression, heteroskedastic GP, GP classification, random forest, SVM)
+# 14 · Surrogate models (GP regression, heteroskedastic GP, GP classification, random forest, SVM)
 
-**Theory:** course Module 14. The surrogate answers, everywhere in the box, which margin to expect and how unsure it is.
+**Theory:** Rasmussen & Williams 2006; Binois, Gramacy & Ludkovski 2018; Lyu, Binois & Ludkovski 2021; Batsch et al. 2019
+(full references at the end). The surrogate answers, everywhere in the box, which margin to expect and how unsure it is.
 A good surrogate is one whose stated uncertainty is right, not the one with the smallest error at the runs. This notebook
 fits each model on the same runs, checks it against a permutation null and its calibration, and ends with the esmini
 cut-in. Harness: `failreg/` (notebook 32). CPU only, about two minutes.
@@ -34,14 +35,14 @@ print(f"{time.time() - t:.0f} s")
 """),
 ("md", r"""
 The pass/fail classifiers throw away the size of the margin; on 48 deterministic runs they barely beat the constant. On the
-smooth Branin the squared-exponential kernel beats Matérn 5/2. Kernel choice depends on the problem (Module 14 cites a
-sweep where it was the other way round).
+smooth Branin the squared-exponential kernel beats Matérn 5/2. Kernel choice depends on the problem; on others it can go
+the other way.
 """),
 ("md", r"""
 ## 2. Does the model beat a permutation null?
 
 Refit the GP to the same inputs with the margins shuffled (19 times). A model that has learned something beats all
-19 permuted fits, both in marginal likelihood and in misclassified share (Module 14, §4).
+19 permuted fits, both in marginal likelihood and in misclassified share.
 """),
 ("code", r"""
 G, truth, shape, _ = pb.test
@@ -96,7 +97,7 @@ low-noise third, where its noise estimate is too large. Replicates are what let 
 ## 4. GP classification: two rules for the same α
 
 For pass/fail data the GPC failure region can be read on the latent scale, {μ_f ≥ logit α}, or from the averaged predictive
-probability, {P(fail) ≥ α}. They agree only at α = 0.5 (Module 14, §2; logit 0.1 ≈ −2.2).
+probability, {P(fail) ≥ α}. They agree only at α = 0.5 (logit 0.1 ≈ −2.2).
 """),
 ("code", r"""
 gpc = fits["GPC"][0]; mu_f, sd_f = gpc.latent(G); pbar = gpc.p_fail(G)

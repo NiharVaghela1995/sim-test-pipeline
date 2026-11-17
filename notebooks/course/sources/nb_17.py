@@ -1,8 +1,8 @@
 CELLS = [
 ("md", r"""
-# Module 17: explore or replicate (fixed replicates, OCBA, stochastic kriging, threshold allocation, APT, IMSPE)
+# 17 · Explore or replicate (fixed replicates, OCBA, stochastic kriging, threshold allocation, APT, IMSPE)
 
-**Theory:** course Module 17. On a noisy system one run at a point says little; repeats show how often it fails, which
+**Theory:** Chen & Lee 2011; Gramacy 2020; Binois et al. 2019; Locatelli et al. 2016 (full references at the end). On a noisy system one run at a point says little; repeats show how often it fails, which
 is what the target {p(x) ≥ α} is about. But each repeat is a run not spent on a new point. This notebook implements the
 allocation rules, shows where a rule built for the best point goes wrong on a boundary, measures fixed replication with
 and without a noise model, and ends with the esmini cut-in, deterministic and noisy. Harness: `failreg/replication.py`,
@@ -13,17 +13,16 @@ and without a noise model, and ends with the esmini cut-in, deterministic and no
 | fixed r per site | baseline |
 | OCBA, N_i/N_j = ((σ_i/δ_b,i)/(σ_j/δ_b,j))², N_b = σ_b √(Σ N_i²/σ_i²) | Chen & Lee 2011, Theorem 3.2 |
 | stochastic kriging: GP on site means with per-site noise | Gramacy 2020; Binois et al. 2018 (`HetGP`) |
-| threshold allocation N_i ∝ σ_i²/(\|μ_i − τ\| + ε)², or ∝ 1/KL(α‖p_i) for pass/fail | own derivation in the course, large budgets only |
+| threshold allocation N_i ∝ σ_i²/(\|μ_i − τ\| + ε)², or ∝ 1/KL(α‖p_i) for pass/fail | the author's own derivation, large budgets only |
 | APT: pull argmin √T_k (\|μ̂_k − τ\| + ε), each arm once first | Locatelli et al. 2016 |
 | replicate or explore by IMSPE, one step | Binois et al. 2019 (their h = 0 case) |
 """),
 ("md", r"""
 ## 1. OCBA selects the best, not the boundary
 
-Three sites with means 0, 0.48 and 0.9, sd 1, threshold 0.5, 300 runs (the course's check). Then the consequence, as the
+Three sites with means 0, 0.48 and 0.9, sd 1, threshold 0.5, 300 runs. Then the consequence, as the
 expected number of sites put on the wrong side, Σ Φ(−|μ_i − τ|√N_i/σ_i), against the exact optimum found by trying every
-integer split. The threshold rule is asymptotic: at a small budget it over-concentrates on the site nearest the threshold
-(Module 17 flags this).
+integer split. The threshold rule is asymptotic: at a small budget it over-concentrates on the site nearest the threshold.
 """),
 ("code", r"""
 from scipy.stats import norm
@@ -46,7 +45,7 @@ measures gaps to the best site. At 300 runs the asymptotic rule overshoots; a la
 
 12 sites with failure probabilities on both sides of α = 0.10, 1200 runs, ε = 0.01. Error = some site with |p − α| > ε put on the wrong
 side (Locatelli et al.'s loss). With one initial pull and a small α, a site whose first run fails gets p̂ = 1, looks far from α
-and can be starved; about 1/α initial pulls avoid it (Module 17, §3). 200 seeds.
+and can be starved; about 1/α initial pulls avoid it. 200 seeds.
 """),
 ("code", r"""
 p_arm = np.array([0.01, 0.02, 0.04, 0.05, 0.06, 0.15, 0.16, 0.2, 0.25, 0.3, 0.4, 0.5]); a, eps, B = 0.10, 0.01, 1200

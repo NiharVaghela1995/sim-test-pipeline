@@ -88,6 +88,17 @@ The ACC was already braking at the reference point in 58.6 % of realised runs (i
 - **The 1.0 m margin is our choice.** By R157 as written the system complies everywhere tested.
 - **Scale.** One seed for the compliance report; 45 boundary points for calibration; a deterministic system, so the band contains no run-to-run spread. No clean-clone rerun from a manifest was done this time (the demo did one).
 
+## Provenance: uncommitted code at run time
+
+All 30 campaign manifests (`results/r157/manifests/*.json`) record `code_commit` `3d13470` with `code_dirty: true`:
+when the campaigns ran, `src/` or `env/` had changes that were not committed. Git did not record what they were. Between
+`3d13470` and the commit that added these results (`8b08cf5`), the only change to `src/` and `env/` is one new file,
+`src/stp/r157/plots.py`; no file the campaigns use was edited. The likely cause is that this file was present but not yet
+committed. That is an inference, not a record. No R157 campaign has been rerun from a clean clone. The study shares its
+GP, scenario and runner modules (`stp.cutin`) with the GP boundary demo, whose campaign `gp_al_0` passed a clean-clone
+rerun; its own campaign loop (`src/stp/r157/experiment.py`) has not been checked that way. The noisy study's spot check
+is in `docs/NOISE_REPORT.md`.
+
 ## Reproduce
 
 ```bash

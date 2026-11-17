@@ -67,11 +67,11 @@ Budgets of 100, 200 and 300 runs, 10 seeds (index 0–9). Every arm is scored at
 
 Sobol and GP-AL share the first 30 points for each seed, so they are compared in pairs.
 
-The GP, ported from Project 2 (`ls_hz001_deep_dive/wp5`, `wp6`) and simplified: scikit-learn `GaussianProcessRegressor`, inputs scaled to [0, 1], `normalize_y`, kernel constant × Matérn 5/2 with one length scale per input (bounds 0.01–10) plus a white-noise term (bounds 1e-8 to 1e-1, on the normalised scale), fitted by maximum marginal likelihood with 5 seeded restarts. The target is the margin. The band is the full predictive standard deviation, white-noise term included.
+The GP, ported from an earlier project (private) and simplified: scikit-learn `GaussianProcessRegressor`, inputs scaled to [0, 1], `normalize_y`, kernel constant × Matérn 5/2 with one length scale per input (bounds 0.01–10) plus a white-noise term (bounds 1e-8 to 1e-1, on the normalised scale), fitted by maximum marginal likelihood with 5 seeded restarts. The target is the margin. The band is the full predictive standard deviation, white-noise term included.
 
-Active learning, as in Project 2: the straddle score 1.96·σ − |μ| (Bryan et al., NIPS 2005) on a fresh pool of 2,048 scrambled Sobol points per batch. Pick the 10 highest-scoring points that are at least 0.05 apart (unit cube) from each other and from every earlier run; relax the distance if the batch cannot be filled. All seeds derive from the seed index by hashing, so a campaign is a pure function of its manifest.
+Active learning, as in an earlier project (private): the straddle score 1.96·σ − |μ| (Bryan et al., NIPS 2005) on a fresh pool of 2,048 scrambled Sobol points per batch. Pick the 10 highest-scoring points that are at least 0.05 apart (unit cube) from each other and from every earlier run; relax the distance if the batch cannot be filled. All seeds derive from the seed index by hashing, so a campaign is a pure function of its manifest.
 
-Not kept from Project 2: the heteroscedastic noise surface, OCBA replicate allocation, GP-Hedge and the stopping rule. esmini and this SUT are expected to be deterministic, so replicate noise is measured (step 4), not modelled. Budgets are fixed in advance, so there is no stopping rule.
+Not kept from an earlier project (private): the heteroscedastic noise surface, OCBA replicate allocation, GP-Hedge and the stopping rule. esmini and this SUT are expected to be deterministic, so replicate noise is measured (step 4), not modelled. Budgets are fixed in advance, so there is no stopping rule.
 
 Controls, which answer "does the GP model matter at all":
 
@@ -120,11 +120,11 @@ Each campaign writes a manifest: arm, seed index, derived seeds, budget, GP and 
 
 300 uniform points from a separate seed (987654), not reused anywhere. Used to fix the gap definition, the lane-change trigger timing (esmini starts a triggered action one step after its condition first holds, so the trigger is set half a step early), the correction for the cutting car's small longitudinal slowdown while it turns, and the gates `ego_cruise_before_cut`, `outcome_settled` and `dynamics_valid_to_kpi` as described above. After these fixes, 300 of 300 pilot runs were realised. 13.7% failed the rule, none collided, and 35% were at the 6 s cap. Six gap sweeps at 1 m steps showed the non-monotone stretches described above.
 
-## Project 2 weaknesses this design answers
+## Weaknesses of an earlier project (private) that this design answers
 
-From `research_map/own_evidence/CLAIM_CORRECTIONS.md` §1 and the Project 2 notes.
+From the author's own correction notes on an earlier project (private).
 
-| Weakness in Project 2 | Answer here |
+| Weakness in the earlier project | Answer here |
 |---|---|
 | No search-versus-Sobol comparison on the real simulator; only a synthetic one | All arms run on esmini, against a reference from 91,791 esmini runs |
 | 3 seeds; the mean ordering came from one seed | 10 paired seeds, a per-seed win count in the decision rule, Holm correction |

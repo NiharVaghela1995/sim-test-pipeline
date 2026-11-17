@@ -101,7 +101,7 @@ class Problem:
 
     def h(self, U):
         """Threshold on the mean margin that the target region corresponds to: {f(x) < h(x)}.
-        h = tau - s(x) Phi^-1(alpha); it moves to the safe side for alpha < 0.5 (course Module 14, section 2)."""
+        h = tau - s(x) Phi^-1(alpha); it moves to the safe side for alpha < 0.5."""
         return self.tau - self.noise_sd(U) * norm.ppf(self.alpha) if self.noisy else np.full(len(np.atleast_2d(U)), self.tau)
 
     def grid(self, n=None):

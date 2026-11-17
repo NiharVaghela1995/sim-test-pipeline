@@ -151,7 +151,7 @@ So the band is honest where the boundary is smooth and too confident in the non-
 - **Runs:** each point was rerun 10 times, giving 1,500 runs. They ran in sequence and in a 4-worker pool in shuffled order. Two of the 10 used esmini seed 987 instead of 0.
 - **Result:** 150 of 150 points were bitwise identical in every repeat. The largest difference was 0.0 and all verdicts matched.
 
-This is the expected result and it is a good one. The pass/fail verdict at a point is a property of the scenario, so no noise model or replicate allocation is needed. That differs from Project 2, where noise was estimated from 2–5 replicates (CLAIM_CORRECTIONS.md §1, as listed in the plan).
+This is the expected result and it is a good one. The pass/fail verdict at a point is a property of the scenario, so no noise model or replicate allocation is needed. That differs from an earlier project (private), where noise was estimated from 2–5 replicates (as listed in the plan).
 
 **Rerun from manifest** (`determinism_rerun.json`). `scripts/rerun_clean.sh` takes a fresh git clone of commit `68450d7`, builds a fresh `.venv` from `env/requirements.lock`, checks the esmini zip sha256, and rebuilds GP-AL seed 0 (300 runs) from `manifests/gp_al_0.json` alone. The result was **identical**:
 
@@ -194,6 +194,17 @@ All of these are marked post hoc above:
 - **Scope:** one scenario, one controller and one placeholder threshold. The ACC's early reaction at small gaps is a property of this esmini controller, not a general finding.
 - **Reference:** the "true" boundary is a 0.25 m grid. Its own error (section 2) is far below every difference reported here, but on lines that only just touch zero the boundary depends on margins of a few milliseconds.
 - **Active learning:** GP-AL used the straddle score with batches of 10, and was not tuned. Other acquisition rules were not tried.
+
+## Provenance: uncommitted code at run time
+
+All 30 campaign manifests (`results/gp_boundary/manifests/*.json`) record `code_commit` `4447ccf` with
+`code_dirty: true`: when the campaigns ran, `src/` or `env/` had changes that were not committed. Git did not record what
+they were. Between `4447ccf` and the commits that added these results, the only changes to `src/` and `env/` are five
+new files (`analysis.py`, `critical.py`, `overbrake.py`, `plots.py`, `replicate.py` in `src/stp/cutin/`); no file the
+campaigns use was edited. The likely cause is therefore that those files were present but not yet committed. That is an
+inference, not a record. The check that does not rely on it is the clean-clone rerun in section 6: campaign `gp_al_0`,
+rerun from its manifest in a fresh clone of commit `68450d7` with a freshly built environment, reproduced the final
+prediction bit for bit. The other 29 campaigns were not rerun.
 
 ## Reproduce
 

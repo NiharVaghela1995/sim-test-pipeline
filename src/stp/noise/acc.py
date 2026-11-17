@@ -1,3 +1,6 @@
+# This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not
+# distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# Ported from esmini (https://github.com/esmini/esmini), ControllerACC.cpp, tag v3.11.0, which is under MPL-2.0.
 """Python port of esmini 3.11.0's ACCController (EnvironmentSimulator/Modules/Controllers/ControllerACC.cpp, tag v3.11.0),
 so that perception noise and an actuation delay can be put between the world and the controller. esmini's own ACC reads
 ground truth inside C++ and cannot be given either.

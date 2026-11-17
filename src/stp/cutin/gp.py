@@ -1,5 +1,4 @@
-"""GP surrogate and active learning, ported from Project 2 (ls_hz001_deep_dive/wp5/boundary_model.py and
-wp6/acquisition.py) and simplified per docs/GP_BOUNDARY_PLAN.md: one fixed kernel, no noise surface, no OCBA."""
+"""GP surrogate and active learning, ported from an earlier project (private) and simplified per docs/GP_BOUNDARY_PLAN.md: one fixed kernel, no noise surface, no OCBA."""
 import hashlib
 import warnings
 import numpy as np
@@ -59,7 +58,7 @@ def sobol_unit(n, seed):
 
 
 def select_batch(pool, scores, history, k, min_dist=CFG["min_dist"]):
-    """Project 2's select_batch_space_filling: highest scores first, at least min_dist from every earlier run and from
+    """Batch rule from an earlier project (private): highest scores first, at least min_dist from every earlier run and from
     the batch; if the batch cannot be filled, the rest is taken in score order without the distance rule."""
     order = np.argsort(-scores, kind="stable")
     hist = np.asarray(history, float).reshape(-1, pool.shape[1])

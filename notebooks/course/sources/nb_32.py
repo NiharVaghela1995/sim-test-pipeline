@@ -1,8 +1,8 @@
 CELLS = [
 ("md", r"""
-# Module 32: the evaluation harness, and how to score a failure-region method
+# 32 · The evaluation harness, and how to score a failure-region method
 
-**Theory:** course Module 32 (metrics, answer key, seeds, ablations). This notebook builds the shared harness `failreg/`
+**Theory:** Agarwal et al. 2021; Klees et al. 2018; Tu et al. 2023; Batsch et al. 2019 (full references at the end). This notebook builds the shared harness `failreg/`
 that notebooks 13, 14, 15 and 17 reuse, then runs a small benchmark with it. It ends with one esmini cut-in case.
 CPU only, about two minutes.
 
@@ -12,7 +12,7 @@ The harness: `problems.py` (test functions with a known failure region), `metric
 ("md", r"""
 ## 1. Test problems with a known answer
 
-A method can only be scored where the true region is known (Module 32, §1). All problems live on [0, 1]². A run returns a
+A method can only be scored where the true region is known. All problems live on [0, 1]². A run returns a
 margin; it fails when the margin is below the threshold.
 
 | Problem | Failure region | Why it is here |
@@ -36,7 +36,7 @@ print("grid boundary vs exact contour, max distance:", round(M.boundary_distance
 ("md", r"""
 ## 2. The metrics
 
-Positive = failing. The table follows Module 32, §2.
+Positive = failing.
 
 | Metric | Function | Needs the answer key? |
 |---|---|---|
@@ -66,7 +66,7 @@ control.
 
 ## 3. A benchmark: GP active learning against Sobol and random at equal budget
 
-Arms (Module 32, Figure 1): GP with the straddle criterion (notebook 15), the same GP on a Sobol design, and on uniform
+Arms: GP with the straddle criterion (notebook 15), the same GP on a Sobol design, and on uniform
 random points. 60 runs, 10 seeds. Seeds are paired: on each seed the GP-AL arm starts from the Sobol arm's first 10 points and
 all arms share the replicate stream.
 """),
@@ -106,7 +106,7 @@ for (a, b), p_raw, p_adj in zip(pairs, pv, M.holm(pv)):
 ## 4. Runs to target: the target changes the ranking
 
 Runs until the misclassified share first stays at or below a target. Active learning spends its first runs on the same Sobol
-points, so at a loose target the arms tie (or Sobol wins, as in the GP demo of Module 32, §4); only a tight target
+points, so at a loose target the arms tie (or Sobol wins, as in this repo's GP boundary demo, `docs/GP_BOUNDARY_REPORT.md`); only a tight target
 separates them here. Report several targets.
 """),
 ("code", r"""
@@ -154,8 +154,7 @@ print("regions found of 4 at 40 runs, per seed:", res)
 ("md", r"""
 ## 7. Ablation: remove one part at a time
 
-Remove the adaptivity (= the Sobol arm above) or remove the model (1-nearest-neighbour on the same runs). The rule from
-Module 32: a component that adds nothing is reported as such. The last row (1-NN on Sobol runs) is a reference, not an
+Remove the adaptivity (= the Sobol arm above) or remove the model (1-nearest-neighbour on the same runs). The rule: a component that adds nothing is reported as such. The last row (1-NN on Sobol runs) is a reference, not an
 ablation: compare it with the 1-NN row on the GP-AL runs. Adaptive designs bunch near the boundary and pay off only with a
 model that interpolates smoothly. With 10 seeds, the smallest possible two-sided Wilcoxon p is 0.002 (0.006 after Holm
 over three tests).

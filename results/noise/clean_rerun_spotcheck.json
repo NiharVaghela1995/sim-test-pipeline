@@ -1,0 +1,14 @@
+{
+ "manifest": "results/noise/manifests/mid/het_al_0.json",
+ "manifest_commit": "51bba8f",
+ "manifest_code_dirty": true,
+ "rerun_commit": "91d62b71e59da861d7df417557fd9618858b5514",
+ "how": "fresh git clone of the rerun commit (clean working tree), fresh .venv from env/requirements.lock via scripts/setup_env.sh, esmini zip sha256 checked; stp.noise.experiment.campaign('mid', 'het_al', 0, workers=4); every run compared with the manifest's runs",
+ "runs": 300,
+ "same_inputs": true,
+ "same_seeds": true,
+ "same_realised": true,
+ "max_abs_margin_diff": 0.0,
+ "identical": true,
+ "wall_time_s": 187
+}

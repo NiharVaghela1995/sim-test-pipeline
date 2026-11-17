@@ -1,10 +1,10 @@
-"""Explore or replicate (course Module 17). Sites are candidate points already picked; the rules decide how many runs
+"""Explore or replicate. Sites are candidate points already picked; the rules decide how many runs
 each gets.
 
   fixed            equal replicates per site
   ocba             Chen & Lee 2011, Theorem 3.2: asymptotically optimal for selecting the BEST site (wrong target here)
   threshold_alloc  N_i proportional to s_i^2 / (|m_i - tau| + eps)^2, or 1 / KL(alpha || p_i) for pass/fail sites.
-                   The review's own derivation, valid only for large budgets (course Module 17 says so)
+                   The author's own derivation, valid only for large budgets
   apt              Locatelli et al. 2016: pull argmin sqrt(T_k) (|mu_k - tau| + eps); pull each arm n_init times first
   imspe_choice     replicate-or-explore by one-step IMSPE: compare the integrated predictive variance after one new site
                    with that after one more replicate at an existing site (a one-step version of Binois et al. 2019)
