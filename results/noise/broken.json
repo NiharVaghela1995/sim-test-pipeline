@@ -1,0 +1,116 @@
+{
+ "level": "mid",
+ "clean_realised": [
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "broken": [
+  {
+   "defect": "ego without ACC",
+   "realised": false,
+   "failed_gates": [
+    "controllers",
+    "outcome_settled"
+   ]
+  },
+  {
+   "defect": "cutting car starts in the ego lane",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_lc",
+    "ego_cruise_before_cut",
+    "gap_at_cut",
+    "lane_change_end",
+    "lane_change_start",
+    "start_pose",
+    "ttc_li_realised",
+    "visibility"
+   ]
+  },
+  {
+   "defect": "no lane change",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_lc",
+    "gap_at_cut",
+    "lane_change_end",
+    "lane_change_start",
+    "outcome_settled",
+    "ttc_li_realised",
+    "visibility"
+   ]
+  },
+  {
+   "defect": "lane change away from the ego",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_lc",
+    "gap_at_cut",
+    "lane_change_end",
+    "lane_change_start",
+    "outcome_settled",
+    "ttc_li_realised",
+    "visibility"
+   ]
+  },
+  {
+   "defect": "lane change triggered late",
+   "realised": false,
+   "failed_gates": [
+    "gap_at_cut",
+    "lane_change_start",
+    "ttc_li_realised"
+   ]
+  },
+  {
+   "defect": "cutting car placed 2 m off",
+   "realised": false,
+   "failed_gates": [
+    "gap_at_cut",
+    "start_pose",
+    "ttc_li_realised"
+   ]
+  },
+  {
+   "defect": "cutting car 1 m/s off",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_held",
+    "cut_speed_lc",
+    "gap_at_cut",
+    "start_speed",
+    "ttc_li_realised"
+   ]
+  },
+  {
+   "defect": "ego 1 m/s off",
+   "realised": false,
+   "failed_gates": [
+    "ego_cruise_before_cut",
+    "start_speed"
+   ]
+  },
+  {
+   "defect": "simulation too short",
+   "realised": false,
+   "failed_gates": [
+    "lane_change_end"
+   ]
+  },
+  {
+   "defect": "cutter 1 m/s slower than designed",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_held",
+    "cut_speed_lc",
+    "gap_at_cut",
+    "start_speed",
+    "ttc_li_realised"
+   ]
+  }
+ ],
+ "all_caught": true
+}

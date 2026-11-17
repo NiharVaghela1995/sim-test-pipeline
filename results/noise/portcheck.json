@@ -1,0 +1,8 @@
+{
+ "runs": 500,
+ "realised_agree": 500,
+ "both_realised": 486,
+ "max_abs_margin_diff": 1.5906593375802913e-08,
+ "verdicts_agree": 486,
+ "passed": true
+}

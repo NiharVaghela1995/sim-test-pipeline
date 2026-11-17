@@ -59,6 +59,19 @@ Cut-in with esmini's ACC as the SUT: plan `docs/GP_BOUNDARY_PLAN.md`, report `do
 
 TC = `tests/test_cutin.py`, TG = `tests/test_gp_boundary.py`.
 
+## R157 rule and noisy SUT
+
+R157 cut-in rule (`src/stp/r157/`: design, runner, experiment, plots; tests `tests/test_r157.py`): `docs/R157_TEST_DESIGN.md`, `docs/R157_PLAN.md`, `docs/R157_REPORT.md`. Noise on the same cut-in: plan `docs/NOISE_PLAN.md`, report `docs/NOISE_REPORT.md`, outputs in `results/noise/`.
+
+| Module | What it does | Tests (TN = `tests/test_noise.py`) |
+|---|---|---|
+| `src/stp/noise/acc.py` | Python port of esmini 3.11.0's ACCController (lead selection, free-space check, control law) | TN: same trace as esmini's ACC at 4 points; free-space geometry |
+| `src/stp/noise/sut.py` | Closed loop: esmini world, ported ACC through ExternalController, AR(1) perception noise on the cutter, actuation delay | TN: noise statistics and seeding, delay shift |
+| `src/stp/noise/runner.py` | One noisy R157 run: KPI, margin, the 16 gates | TN: realised, seeded |
+| `src/stp/noise/surrogates.py` | Homoscedastic GP, two-stage heteroskedastic GP, target region g = μ − z√r, straddle | TN: recovers input-dependent noise, replicate pooling, region algebra |
+| `src/stp/noise/experiment.py` | Port check, broken scenarios, replicated reference, four arms, scoring and tests, boundary replication, reruns per verdict | TN: isotonic, line boundary, stage-2 rule, SPRT, quantile rule |
+| `src/stp/noise/plots.py` | Report figures | None |
+
 ## Environment and records
 
 | Item | What it does | Stage and problem slice |

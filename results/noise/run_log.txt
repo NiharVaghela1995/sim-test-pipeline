@@ -1,0 +1,834 @@
+== portcheck
+{'runs': 500, 'realised_agree': 500, 'both_realised': 486, 'max_abs_margin_diff': 1.5906593375802913e-08, 'verdicts_agree': 486, 'passed': True}
+== broken
+{
+ "level": "mid",
+ "clean_realised": [
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "broken": [
+  {
+   "defect": "ego without ACC",
+   "realised": false,
+   "failed_gates": [
+    "controllers",
+    "outcome_settled"
+   ]
+  },
+  {
+   "defect": "cutting car starts in the ego lane",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_lc",
+    "ego_cruise_before_cut",
+    "gap_at_cut",
+    "lane_change_end",
+    "lane_change_start",
+    "start_pose",
+    "ttc_li_realised",
+    "visibility"
+   ]
+  },
+  {
+   "defect": "no lane change",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_lc",
+    "gap_at_cut",
+    "lane_change_end",
+    "lane_change_start",
+    "outcome_settled",
+    "ttc_li_realised",
+    "visibility"
+   ]
+  },
+  {
+   "defect": "lane change away from the ego",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_lc",
+    "gap_at_cut",
+    "lane_change_end",
+    "lane_change_start",
+    "outcome_settled",
+    "ttc_li_realised",
+    "visibility"
+   ]
+  },
+  {
+   "defect": "lane change triggered late",
+   "realised": false,
+   "failed_gates": [
+    "gap_at_cut",
+    "lane_change_start",
+    "ttc_li_realised"
+   ]
+  },
+  {
+   "defect": "cutting car placed 2 m off",
+   "realised": false,
+   "failed_gates": [
+    "gap_at_cut",
+    "start_pose",
+    "ttc_li_realised"
+   ]
+  },
+  {
+   "defect": "cutting car 1 m/s off",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_held",
+    "cut_speed_lc",
+    "gap_at_cut",
+    "start_speed",
+    "ttc_li_realised"
+   ]
+  },
+  {
+   "defect": "ego 1 m/s off",
+   "realised": false,
+   "failed_gates": [
+    "ego_cruise_before_cut",
+    "start_speed"
+   ]
+  },
+  {
+   "defect": "simulation too short",
+   "realised": false,
+   "failed_gates": [
+    "lane_change_end"
+   ]
+  },
+  {
+   "defect": "cutter 1 m/s slower than designed",
+   "realised": false,
+   "failed_gates": [
+    "cut_speed_held",
+    "cut_speed_lc",
+    "gap_at_cut",
+    "start_speed",
+    "ttc_li_realised"
+   ]
+  }
+ ],
+ "all_caught": true
+}
+== reference
+low/reference: 43270 runs in 1216 s
+low/reference: 17370 runs in 556 s
+low {'level': {'name': 'low', 'sigma_x': 0.2, 'sigma_y': 0.1, 'sigma_v': 0.1, 'delay': 0.1}, 'applicable': 4327, 'runs': 60640, 'stage2_points': 579, 'no_verdict_share': 0.11634234828496037, 'not_realised_by_gate': {'dynamics_valid_to_kpi': 7054, 'outcome_settled': 1}, 'truth_points': 4271, 'target_share': 0.07679700304378366, 'p_half_share': 0.06181222196206977, 'any_fail_share': 0.08733317724186374, 'collisions': 0, 'iso_change_mean_abs': 3.482653515309495e-05, 'lines_with_multiple_raw_crossings': 0, 'boundary_points': 42, 'margin_sd_quantiles_10_50_90': [0.04772947319002037, 0.12998557290690416, 0.26469643099397777]}
+mid/reference: 43270 runs in 1223 s
+mid/reference: 26850 runs in 630 s
+mid {'level': {'name': 'mid', 'sigma_x': 0.5, 'sigma_y': 0.2, 'sigma_v': 0.3, 'delay': 0.2}, 'applicable': 4327, 'runs': 70120, 'stage2_points': 895, 'no_verdict_share': 0.055077010838562424, 'not_realised_by_gate': {'dynamics_valid_to_kpi': 3841, 'outcome_settled': 21}, 'truth_points': 4327, 'target_share': 0.1308065634388722, 'p_half_share': 0.09128726600415993, 'any_fail_share': 0.16362375779986132, 'collisions': 79, 'iso_change_mean_abs': 0.0003721237441897301, 'lines_with_multiple_raw_crossings': 0, 'boundary_points': 65, 'margin_sd_quantiles_10_50_90': [0.0959741563051034, 0.27078245849478955, 0.5384199567665242]}
+high/reference: 43270 runs in 1015 s
+high/reference: 41700 runs in 1000 s
+high {'level': {'name': 'high', 'sigma_x': 1.0, 'sigma_y': 0.3, 'sigma_v': 0.6, 'delay': 0.3}, 'applicable': 4327, 'runs': 84970, 'stage2_points': 1390, 'no_verdict_share': 0.041438154642815084, 'not_realised_by_gate': {'dynamics_valid_to_kpi': 3170, 'outcome_settled': 54, 'ego_cruise_before_cut': 363}, 'truth_points': 4327, 'target_share': 0.19759648717356135, 'p_half_share': 0.11185578923041369, 'any_fail_share': 0.2666974809336723, 'collisions': 592, 'iso_change_mean_abs': 0.0020685664515162506, 'lines_with_multiple_raw_crossings': 15, 'boundary_points': 90, 'margin_sd_quantiles_10_50_90': [0.15023419523069315, 0.42071833588137614, 0.8012051846817388]}
+== campaigns
+campaign ('low', 'het_al', 1) done (1/120, 375 s)
+campaign ('low', 'het_al', 2) done (2/120, 376 s)
+campaign ('low', 'het_al', 0) done (3/120, 379 s)
+campaign ('low', 'het_al', 3) done (4/120, 380 s)
+campaign ('low', 'het_al', 5) done (5/120, 743 s)
+campaign ('low', 'het_al', 4) done (6/120, 743 s)
+campaign ('low', 'het_al', 6) done (7/120, 746 s)
+campaign ('low', 'het_al', 7) done (8/120, 752 s)
+campaign ('low', 'hom_al', 0) done (9/120, 828 s)
+campaign ('low', 'het_al', 8) done (10/120, 1113 s)
+campaign ('low', 'het_al', 9) done (11/120, 1120 s)
+campaign ('low', 'hom_al', 1) done (12/120, 1157 s)
+campaign ('low', 'hom_al', 4) done (13/120, 1213 s)
+campaign ('low', 'hom_al', 2) done (14/120, 1231 s)
+campaign ('low', 'hom_al', 3) done (15/120, 1516 s)
+campaign ('low', 'hom_al', 5) done (16/120, 1562 s)
+campaign ('low', 'hom_al', 8) done (17/120, 1601 s)
+campaign ('low', 'hom_al', 6) done (18/120, 1612 s)
+campaign ('low', 'hom_al', 7) done (19/120, 1640 s)
+low/sobol_1: 300 runs in 29 s
+campaign ('low', 'sobol', 1) done (20/120, 1641 s)
+low/sobol_0: 300 runs in 29 s
+campaign ('low', 'sobol', 0) done (21/120, 1652 s)
+low/sobol_2: 300 runs in 29 s
+campaign ('low', 'sobol', 2) done (22/120, 1670 s)
+low/sobol_3: 300 runs in 28 s
+campaign ('low', 'sobol', 3) done (23/120, 1691 s)
+low/sobol_4: 300 runs in 28 s
+campaign ('low', 'sobol', 4) done (24/120, 1702 s)
+low/sobol_6: 300 runs in 29 s
+low/sobol_5: 300 runs in 29 s
+campaign ('low', 'sobol', 6) done (25/120, 1721 s)
+campaign ('low', 'sobol', 5) done (26/120, 1721 s)
+low/sobol_7: 300 runs in 30 s
+campaign ('low', 'sobol', 7) done (27/120, 1753 s)
+low/sobol_8: 300 runs in 30 s
+low/sobol_9: 300 runs in 30 s
+campaign ('low', 'sobol', 8) done (28/120, 1773 s)
+campaign ('low', 'sobol', 9) done (29/120, 1773 s)
+low/random_0: 300 runs in 29 s
+campaign ('low', 'random', 0) done (30/120, 1804 s)
+low/random_2: 300 runs in 29 s
+campaign ('low', 'random', 2) done (31/120, 1824 s)
+low/random_1: 300 runs in 30 s
+campaign ('low', 'random', 1) done (32/120, 1825 s)
+low/random_3: 300 runs in 29 s
+campaign ('low', 'random', 3) done (33/120, 1855 s)
+low/random_4: 300 runs in 29 s
+campaign ('low', 'random', 4) done (34/120, 1875 s)
+low/random_5: 300 runs in 30 s
+campaign ('low', 'random', 5) done (35/120, 1876 s)
+low/random_6: 300 runs in 29 s
+campaign ('low', 'random', 6) done (36/120, 1907 s)
+low/random_7: 300 runs in 29 s
+campaign ('low', 'random', 7) done (37/120, 1926 s)
+low/random_8: 300 runs in 29 s
+campaign ('low', 'random', 8) done (38/120, 1928 s)
+campaign ('low', 'hom_al', 9) done (39/120, 1954 s)
+low/random_9: 300 runs in 29 s
+campaign ('low', 'random', 9) done (40/120, 1958 s)
+campaign ('mid', 'het_al', 0) done (41/120, 2274 s)
+campaign ('mid', 'het_al', 1) done (42/120, 2277 s)
+campaign ('mid', 'het_al', 3) done (43/120, 2308 s)
+campaign ('mid', 'het_al', 2) done (44/120, 2326 s)
+campaign ('mid', 'het_al', 5) done (45/120, 2643 s)
+campaign ('mid', 'het_al', 4) done (46/120, 2645 s)
+campaign ('mid', 'het_al', 6) done (47/120, 2674 s)
+campaign ('mid', 'het_al', 7) done (48/120, 2678 s)
+campaign ('mid', 'het_al', 9) done (49/120, 2996 s)
+campaign ('mid', 'het_al', 8) done (50/120, 2998 s)
+campaign ('mid', 'hom_al', 0) done (51/120, 3070 s)
+campaign ('mid', 'hom_al', 1) done (52/120, 3082 s)
+campaign ('mid', 'hom_al', 3) done (53/120, 3391 s)
+campaign ('mid', 'hom_al', 2) done (54/120, 3403 s)
+campaign ('mid', 'hom_al', 4) done (55/120, 3472 s)
+campaign ('mid', 'hom_al', 5) done (56/120, 3480 s)
+campaign ('mid', 'hom_al', 6) done (57/120, 3796 s)
+campaign ('mid', 'hom_al', 7) done (58/120, 3801 s)
+mid/sobol_0: 300 runs in 29 s
+campaign ('mid', 'sobol', 0) done (59/120, 3847 s)
+mid/sobol_1: 300 runs in 29 s
+campaign ('mid', 'sobol', 1) done (60/120, 3852 s)
+campaign ('mid', 'hom_al', 8) done (61/120, 3874 s)
+campaign ('mid', 'hom_al', 9) done (62/120, 3887 s)
+mid/sobol_2: 300 runs in 29 s
+campaign ('mid', 'sobol', 2) done (63/120, 3898 s)
+mid/sobol_4: 300 runs in 28 s
+campaign ('mid', 'sobol', 4) done (64/120, 3903 s)
+mid/sobol_3: 300 runs in 29 s
+campaign ('mid', 'sobol', 3) done (65/120, 3904 s)
+mid/sobol_5: 300 runs in 29 s
+campaign ('mid', 'sobol', 5) done (66/120, 3916 s)
+mid/sobol_6: 300 runs in 28 s
+campaign ('mid', 'sobol', 6) done (67/120, 3927 s)
+mid/sobol_7: 300 runs in 29 s
+campaign ('mid', 'sobol', 7) done (68/120, 3932 s)
+mid/sobol_9: 300 runs in 29 s
+campaign ('mid', 'sobol', 9) done (69/120, 3945 s)
+mid/sobol_8: 300 runs in 28 s
+campaign ('mid', 'sobol', 8) done (70/120, 3953 s)
+mid/random_0: 300 runs in 28 s
+campaign ('mid', 'random', 0) done (71/120, 3976 s)
+mid/random_1: 300 runs in 28 s
+campaign ('mid', 'random', 1) done (72/120, 3981 s)
+mid/random_2: 300 runs in 29 s
+campaign ('mid', 'random', 2) done (73/120, 3995 s)
+mid/random_3: 300 runs in 29 s
+campaign ('mid', 'random', 3) done (74/120, 4003 s)
+mid/random_4: 300 runs in 28 s
+campaign ('mid', 'random', 4) done (75/120, 4026 s)
+mid/random_5: 300 runs in 28 s
+campaign ('mid', 'random', 5) done (76/120, 4031 s)
+mid/random_7: 300 runs in 28 s
+campaign ('mid', 'random', 7) done (77/120, 4032 s)
+mid/random_6: 300 runs in 29 s
+campaign ('mid', 'random', 6) done (78/120, 4046 s)
+mid/random_8: 300 runs in 28 s
+campaign ('mid', 'random', 8) done (79/120, 4054 s)
+mid/random_9: 300 runs in 28 s
+campaign ('mid', 'random', 9) done (80/120, 4059 s)
+campaign ('high', 'het_al', 0) done (81/120, 4381 s)
+campaign ('high', 'het_al', 1) done (82/120, 4395 s)
+campaign ('high', 'het_al', 2) done (83/120, 4400 s)
+campaign ('high', 'het_al', 3) done (84/120, 4402 s)
+campaign ('high', 'het_al', 4) done (85/120, 4729 s)
+campaign ('high', 'het_al', 5) done (86/120, 4743 s)
+campaign ('high', 'het_al', 6) done (87/120, 4746 s)
+campaign ('high', 'het_al', 7) done (88/120, 4749 s)
+campaign ('high', 'het_al', 8) done (89/120, 5105 s)
+campaign ('high', 'het_al', 9) done (90/120, 5118 s)
+campaign ('high', 'hom_al', 0) done (91/120, 5170 s)
+campaign ('high', 'hom_al', 1) done (92/120, 5193 s)
+campaign ('high', 'hom_al', 2) done (93/120, 5509 s)
+campaign ('high', 'hom_al', 3) done (94/120, 5529 s)
+campaign ('high', 'hom_al', 4) done (95/120, 5590 s)
+campaign ('high', 'hom_al', 5) done (96/120, 5607 s)
+campaign ('high', 'hom_al', 6) done (97/120, 5914 s)
+campaign ('high', 'hom_al', 7) done (98/120, 5932 s)
+high/sobol_0: 300 runs in 30 s
+campaign ('high', 'sobol', 0) done (99/120, 5945 s)
+high/sobol_1: 300 runs in 32 s
+campaign ('high', 'sobol', 1) done (100/120, 5964 s)
+high/sobol_2: 300 runs in 35 s
+campaign ('high', 'sobol', 2) done (101/120, 5980 s)
+high/sobol_3: 300 runs in 32 s
+campaign ('high', 'sobol', 3) done (102/120, 5996 s)
+campaign ('high', 'hom_al', 8) done (103/120, 5998 s)
+high/sobol_4: 300 runs in 30 s
+campaign ('high', 'sobol', 4) done (104/120, 6010 s)
+high/sobol_5: 300 runs in 29 s
+campaign ('high', 'sobol', 5) done (105/120, 6026 s)
+high/sobol_6: 300 runs in 29 s
+campaign ('high', 'sobol', 6) done (106/120, 6028 s)
+high/sobol_7: 300 runs in 30 s
+campaign ('high', 'sobol', 7) done (107/120, 6040 s)
+campaign ('high', 'hom_al', 9) done (108/120, 6043 s)
+high/sobol_9: 300 runs in 30 s
+campaign ('high', 'sobol', 9) done (109/120, 6058 s)
+high/random_1: 300 runs in 29 s
+campaign ('high', 'random', 1) done (110/120, 6073 s)
+high/sobol_8: 300 runs in 29 s
+campaign ('high', 'sobol', 8) done (111/120, 6078 s)
+high/random_0: 300 runs in 29 s
+campaign ('high', 'random', 0) done (112/120, 6091 s)
+high/random_3: 300 runs in 28 s
+campaign ('high', 'random', 3) done (113/120, 6101 s)
+high/random_2: 300 runs in 28 s
+campaign ('high', 'random', 2) done (114/120, 6107 s)
+high/random_4: 300 runs in 29 s
+campaign ('high', 'random', 4) done (115/120, 6129 s)
+high/random_6: 300 runs in 29 s
+campaign ('high', 'random', 6) done (116/120, 6130 s)
+high/random_5: 300 runs in 29 s
+campaign ('high', 'random', 5) done (117/120, 6142 s)
+high/random_7: 300 runs in 27 s
+campaign ('high', 'random', 7) done (118/120, 6156 s)
+high/random_9: 300 runs in 26 s
+campaign ('high', 'random', 9) done (119/120, 6157 s)
+high/random_8: 300 runs in 14 s
+campaign ('high', 'random', 8) done (120/120, 6160 s)
+== score
+{'level': 'low', 'arm': 'het_al', 'vs': 'hom_al', 'n': 100, 'metric': 'misclass', 'wins': 4, 'losses': 6, 'median': 0.00842893935846406, 'vs_median': 0.007141184734254273, 'median_ratio': 1.2302197802197803, 'p': 0.8125, 'p_holm': 0.8125, 'helps': False, 'p_rev_holm': 1.0, 'worse': False}
+{'level': 'low', 'arm': 'het_al', 'vs': 'hom_al', 'n': 200, 'metric': 'misclass', 'wins': 6, 'losses': 4, 'median': 0.005853430110044486, 'vs_median': 0.006672910325450714, 'median_ratio': 0.894927536231884, 'p': 0.1875, 'p_holm': 0.5625, 'helps': False, 'p_rev_holm': 1.0, 'worse': False}
+{'level': 'low', 'arm': 'het_al', 'vs': 'hom_al', 'n': 300, 'metric': 'misclass', 'wins': 7, 'losses': 3, 'median': 0.005151018496839148, 'vs_median': 0.006204635916647155, 'median_ratio': 0.8500000000000001, 'p': 0.0185546875, 'p_holm': 0.0927734375, 'helps': False, 'p_rev_holm': 1.0, 'worse': False}
+{'level': 'mid', 'arm': 'het_al', 'vs': 'hom_al', 'n': 100, 'metric': 'misclass', 'wins': 7, 'losses': 3, 'median': 0.019644095216085046, 'vs_median': 0.02565287728218165, 'median_ratio': 0.7922077922077921, 'p': 0.0654296875, 'p_holm': 0.26171875, 'helps': False, 'p_rev_holm': 1.0, 'worse': False}
+{'level': 'mid', 'arm': 'het_al', 'vs': 'hom_al', 'n': 200, 'metric': 'misclass', 'wins': 10, 'losses': 0, 'median': 0.01467529466142824, 'vs_median': 0.0241506817656575, 'median_ratio': 0.6688013136288998, 'p': 0.0009765625, 'p_holm': 0.0087890625, 'helps': True, 'p_rev_holm': 1.0, 'worse': False}
+{'level': 'mid', 'arm': 'het_al', 'vs': 'hom_al', 'n': 300, 'metric': 'misclass', 'wins': 10, 'losses': 0, 'median': 0.014328634157614976, 'vs_median': 0.02334180725675988, 'median_ratio': 0.6353021978021978, 'p': 0.0009765625, 'p_holm': 0.0087890625, 'helps': True, 'p_rev_holm': 1.0, 'worse': False}
+{'level': 'high', 'arm': 'het_al', 'vs': 'hom_al', 'n': 100, 'metric': 'misclass', 'wins': 6, 'losses': 4, 'median': 0.05165241506817657, 'vs_median': 0.0733764733071412, 'median_ratio': 0.7373755105384499, 'p': 0.2158203125, 'p_holm': 0.5625, 'helps': False, 'p_rev_holm': 1.0, 'worse': False}
+{'level': 'high', 'arm': 'het_al', 'vs': 'hom_al', 'n': 200, 'metric': 'misclass', 'wins': 10, 'losses': 0, 'median': 0.035012710885139825, 'vs_median': 0.08227409290501503, 'median_ratio': 0.4532082604411735, 'p': 0.0009765625, 'p_holm': 0.0087890625, 'helps': True, 'p_rev_holm': 1.0, 'worse': False}
+{'level': 'high', 'arm': 'het_al', 'vs': 'hom_al', 'n': 300, 'metric': 'misclass', 'wins': 10, 'losses': 0, 'median': 0.030737231338109544, 'vs_median': 0.07707418534781604, 'median_ratio': 0.39916716518357886, 'p': 0.0009765625, 'p_holm': 0.0087890625, 'helps': True, 'p_rev_holm': 1.0, 'worse': False}
+== replicate
+low/boundary_reps_het_al_6: 100 runs in 12 s
+low/boundary_reps_hom_al_0: 100 runs in 11 s
+low/boundary_reps_hom_al_8: 100 runs in 11 s
+low/boundary_reps_sobol_4: 100 runs in 12 s
+low/boundary_reps_het_al_7: 100 runs in 11 s
+low/boundary_reps_hom_al_1: 100 runs in 11 s
+low/boundary_reps_hom_al_9: 100 runs in 10 s
+low/boundary_reps_sobol_5: 100 runs in 10 s
+low/boundary_reps_het_al_8: 100 runs in 10 s
+low/boundary_reps_het_al_0: 100 runs in 10 s
+low/boundary_reps_hom_al_2: 100 runs in 11 s
+low/boundary_reps_sobol_6: 100 runs in 10 s
+low/boundary_reps_het_al_9: 100 runs in 10 s
+low/boundary_reps_het_al_1: 100 runs in 11 s
+low/boundary_reps_hom_al_3: 100 runs in 11 s
+low/boundary_reps_sobol_7: 100 runs in 11 s
+low/boundary_reps_sobol_0: 100 runs in 11 s
+low/boundary_reps_het_al_2: 100 runs in 11 s
+low/boundary_reps_hom_al_4: 100 runs in 10 s
+low/boundary_reps_sobol_8: 100 runs in 11 s
+low/boundary_reps_het_al_3: 100 runs in 11 s
+low/boundary_reps_sobol_1: 100 runs in 10 s
+low/boundary_reps_hom_al_5: 100 runs in 11 s
+low/boundary_reps_sobol_9: 100 runs in 11 s
+low/boundary_reps_het_al_4: 100 runs in 11 s
+low/boundary_reps_sobol_2: 100 runs in 10 s
+low/boundary_reps_hom_al_6: 100 runs in 11 s
+low/boundary_reps_random_0: 100 runs in 11 s
+low/boundary_reps_het_al_5: 100 runs in 12 s
+low/boundary_reps_sobol_3: 100 runs in 12 s
+low/boundary_reps_hom_al_7: 100 runs in 11 s
+low/boundary_reps_random_1: 100 runs in 14 s
+low/boundary_reps_random_2: 100 runs in 11 s
+mid/boundary_reps_hom_al_0: 100 runs in 10 s
+mid/boundary_reps_hom_al_8: 100 runs in 11 s
+mid/boundary_reps_het_al_6: 100 runs in 10 s
+low/boundary_reps_random_3: 100 runs in 10 s
+mid/boundary_reps_hom_al_1: 100 runs in 11 s
+mid/boundary_reps_hom_al_9: 100 runs in 12 s
+mid/boundary_reps_het_al_7: 100 runs in 11 s
+low/boundary_reps_random_4: 100 runs in 10 s
+mid/boundary_reps_hom_al_2: 100 runs in 10 s
+mid/boundary_reps_het_al_0: 100 runs in 10 s
+mid/boundary_reps_het_al_8: 100 runs in 11 s
+low/boundary_reps_random_5: 100 runs in 11 s
+mid/boundary_reps_hom_al_3: 100 runs in 10 s
+mid/boundary_reps_het_al_1: 100 runs in 10 s
+mid/boundary_reps_het_al_9: 100 runs in 10 s
+low/boundary_reps_random_6: 100 runs in 10 s
+mid/boundary_reps_het_al_2: 100 runs in 10 s
+mid/boundary_reps_hom_al_4: 100 runs in 10 s
+mid/boundary_reps_sobol_0: 100 runs in 11 s
+low/boundary_reps_random_7: 100 runs in 10 s
+mid/boundary_reps_het_al_3: 100 runs in 9 s
+mid/boundary_reps_hom_al_5: 100 runs in 10 s
+mid/boundary_reps_sobol_1: 100 runs in 10 s
+mid/boundary_reps_het_al_4: 100 runs in 10 s
+low/boundary_reps_random_8: 100 runs in 10 s
+mid/boundary_reps_hom_al_6: 100 runs in 10 s
+mid/boundary_reps_sobol_2: 100 runs in 11 s
+mid/boundary_reps_het_al_5: 100 runs in 11 s
+low/boundary_reps_random_9: 100 runs in 11 s
+mid/boundary_reps_hom_al_7: 100 runs in 10 s
+mid/boundary_reps_sobol_3: 100 runs in 11 s
+mid/boundary_reps_sobol_4: 100 runs in 10 s
+mid/boundary_reps_random_2: 100 runs in 10 s
+high/boundary_reps_hom_al_0: 100 runs in 10 s
+high/boundary_reps_hom_al_8: 100 runs in 11 s
+mid/boundary_reps_sobol_5: 100 runs in 10 s
+mid/boundary_reps_random_3: 100 runs in 11 s
+high/boundary_reps_hom_al_1: 100 runs in 11 s
+high/boundary_reps_hom_al_9: 100 runs in 11 s
+mid/boundary_reps_sobol_6: 100 runs in 10 s
+mid/boundary_reps_random_4: 100 runs in 10 s
+high/boundary_reps_hom_al_2: 100 runs in 10 s
+high/boundary_reps_het_al_0: 100 runs in 10 s
+mid/boundary_reps_sobol_7: 100 runs in 10 s
+mid/boundary_reps_random_5: 100 runs in 10 s
+high/boundary_reps_hom_al_3: 100 runs in 10 s
+high/boundary_reps_het_al_1: 100 runs in 10 s
+mid/boundary_reps_sobol_8: 100 runs in 10 s
+mid/boundary_reps_random_6: 100 runs in 10 s
+high/boundary_reps_het_al_2: 100 runs in 10 s
+high/boundary_reps_hom_al_4: 100 runs in 10 s
+mid/boundary_reps_sobol_9: 100 runs in 10 s
+mid/boundary_reps_random_7: 100 runs in 9 s
+high/boundary_reps_het_al_3: 100 runs in 10 s
+high/boundary_reps_hom_al_5: 100 runs in 10 s
+mid/boundary_reps_random_0: 100 runs in 11 s
+high/boundary_reps_het_al_4: 100 runs in 10 s
+mid/boundary_reps_random_8: 100 runs in 10 s
+high/boundary_reps_hom_al_6: 100 runs in 11 s
+high/boundary_reps_het_al_5: 100 runs in 10 s
+mid/boundary_reps_random_1: 100 runs in 10 s
+mid/boundary_reps_random_9: 100 runs in 11 s
+high/boundary_reps_hom_al_7: 100 runs in 10 s
+high/boundary_reps_het_al_6: 100 runs in 8 s
+high/boundary_reps_sobol_4: 100 runs in 10 s
+high/boundary_reps_random_2: 100 runs in 10 s
+high/boundary_reps_het_al_7: 100 runs in 9 s
+high/boundary_reps_sobol_5: 100 runs in 7 s
+high/boundary_reps_random_3: 100 runs in 9 s
+high/boundary_reps_het_al_8: 100 runs in 5 s
+high/boundary_reps_sobol_6: 100 runs in 10 s
+high/boundary_reps_het_al_9: 100 runs in 8 s
+high/boundary_reps_random_4: 100 runs in 8 s
+high/boundary_reps_sobol_0: 100 runs in 5 s
+high/boundary_reps_sobol_7: 100 runs in 10 s
+high/boundary_reps_random_5: 100 runs in 7 s
+high/boundary_reps_sobol_1: 100 runs in 7 s
+high/boundary_reps_sobol_2: 100 runs in 5 s
+high/boundary_reps_sobol_8: 100 runs in 10 s
+high/boundary_reps_random_6: 100 runs in 9 s
+high/boundary_reps_sobol_3: 100 runs in 5 s
+high/boundary_reps_sobol_9: 100 runs in 5 s
+high/boundary_reps_random_7: 100 runs in 5 s
+high/boundary_reps_random_0: 100 runs in 5 s
+high/boundary_reps_random_8: 100 runs in 5 s
+high/boundary_reps_random_1: 100 runs in 5 s
+high/boundary_reps_random_9: 100 runs in 4 s
+{
+ "low/hom_al": {
+  "points": 50,
+  "runs": 980,
+  "fails": 97,
+  "p_emp": 0.09897959183673469,
+  "ci95": [
+   0.08181892764136484,
+   0.11927197967542275
+  ],
+  "on_target": true,
+  "no_verdict": 0.020000000000000018
+ },
+ "low/het_al": {
+  "points": 50,
+  "runs": 959,
+  "fails": 105,
+  "p_emp": 0.10948905109489052,
+  "ci95": [
+   0.09126220439835697,
+   0.13083206323611166
+  ],
+  "on_target": true,
+  "no_verdict": 0.041000000000000036
+ },
+ "low/sobol": {
+  "points": 50,
+  "runs": 989,
+  "fails": 5,
+  "p_emp": 0.005055611729019211,
+  "ci95": [
+   0.0021612987235929528,
+   0.011780099380596074
+  ],
+  "on_target": false,
+  "no_verdict": 0.01100000000000001
+ },
+ "low/random": {
+  "points": 50,
+  "runs": 998,
+  "fails": 8,
+  "p_emp": 0.008016032064128256,
+  "ci95": [
+   0.004067292437718945,
+   0.015737834440621903
+  ],
+  "on_target": false,
+  "no_verdict": 0.0020000000000000018
+ },
+ "mid/hom_al": {
+  "points": 50,
+  "runs": 967,
+  "fails": 72,
+  "p_emp": 0.07445708376421924,
+  "ci95": [
+   0.05954204458925243,
+   0.09273985186017868
+  ],
+  "on_target": true,
+  "no_verdict": 0.03300000000000003
+ },
+ "mid/het_al": {
+  "points": 50,
+  "runs": 970,
+  "fails": 79,
+  "p_emp": 0.08144329896907217,
+  "ci95": [
+   0.06583646172083173,
+   0.10035237227434775
+  ],
+  "on_target": true,
+  "no_verdict": 0.030000000000000027
+ },
+ "mid/sobol": {
+  "points": 50,
+  "runs": 988,
+  "fails": 28,
+  "p_emp": 0.02834008097165992,
+  "ci95": [
+   0.0196791449208044,
+   0.04065468257745742
+  ],
+  "on_target": false,
+  "no_verdict": 0.01200000000000001
+ },
+ "mid/random": {
+  "points": 50,
+  "runs": 993,
+  "fails": 18,
+  "p_emp": 0.01812688821752266,
+  "ci95": [
+   0.011496328712548567,
+   0.028471505695646278
+  ],
+  "on_target": false,
+  "no_verdict": 0.007000000000000006
+ },
+ "high/hom_al": {
+  "points": 50,
+  "runs": 976,
+  "fails": 56,
+  "p_emp": 0.05737704918032787,
+  "ci95": [
+   0.044447533311034355,
+   0.07377728996652397
+  ],
+  "on_target": true,
+  "no_verdict": 0.02400000000000002
+ },
+ "high/het_al": {
+  "points": 50,
+  "runs": 969,
+  "fails": 101,
+  "p_emp": 0.1042311661506708,
+  "ci95": [
+   0.08652914942293925,
+   0.12505884188006422
+  ],
+  "on_target": true,
+  "no_verdict": 0.031000000000000028
+ },
+ "high/sobol": {
+  "points": 50,
+  "runs": 981,
+  "fails": 56,
+  "p_emp": 0.05708460754332314,
+  "ci95": [
+   0.044219652352904606,
+   0.07340494839507354
+  ],
+  "on_target": true,
+  "no_verdict": 0.019000000000000017
+ },
+ "high/random": {
+  "points": 50,
+  "runs": 985,
+  "fails": 57,
+  "p_emp": 0.05786802030456853,
+  "ci95": [
+   0.04493115420861317,
+   0.0742402075140328
+  ],
+  "on_target": true,
+  "no_verdict": 0.015000000000000013
+ }
+}
+== reruns
+low {
+ "points": 4271,
+ "bands": {
+  "p = 0 (no fail seen)": {
+   "points": 3898,
+   "sprt_attempts_median_p90": [
+    18.0,
+    18.0
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    2.305,
+    2.9265000000000008
+   ],
+   "qrule_undecided_mean": 1.2827090815802976e-06,
+   "qrule_says_fail_mean": 0.0,
+   "sprt_says_fail_mean": 0.0
+  },
+  "0 < p < 0.05": {
+   "points": 18,
+   "sprt_attempts_median_p90": [
+    23.535,
+    25.662
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    16.377499999999998,
+    28.257000000000005
+   ],
+   "qrule_undecided_mean": 0.01638888888888889,
+   "qrule_says_fail_mean": 0.006388888888888889,
+   "sprt_says_fail_mean": 0.0038888888888888883
+  },
+  "0.05 <= p < 0.2 (near ALPHA)": {
+   "points": 49,
+   "sprt_attempts_median_p90": [
+    35.53,
+    44.577999999999996
+   ],
+   "sprt_undecided_mean": 0.0014285714285714288,
+   "qrule_attempts_median_p90": [
+    37.62,
+    53.056
+   ],
+   "qrule_undecided_mean": 0.1916326530612245,
+   "qrule_says_fail_mean": 0.2323469387755102,
+   "sprt_says_fail_mean": 0.3232653061224489
+  },
+  "0.2 <= p < 0.5": {
+   "points": 42,
+   "sprt_attempts_median_p90": [
+    11.675,
+    19.016
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    6.355,
+    14.349499999999995
+   ],
+   "qrule_undecided_mean": 0.0009523809523809524,
+   "qrule_says_fail_mean": 0.931309523809524,
+   "sprt_says_fail_mean": 0.9942857142857144
+  },
+  "p >= 0.5": {
+   "points": 264,
+   "sprt_attempts_median_p90": [
+    5.640000000000001,
+    18.392000000000003
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    3.56,
+    12.195000000000011
+   ],
+   "qrule_undecided_mean": 0.0,
+   "qrule_says_fail_mean": 0.9977840909090908,
+   "sprt_says_fail_mean": 1.0
+  }
+ },
+ "all_sprt_attempts_mean": 17.59738937017092,
+ "all_qrule_attempts_mean": 3.2099028330601733
+}
+mid {
+ "points": 4327,
+ "bands": {
+  "p = 0 (no fail seen)": {
+   "points": 3619,
+   "sprt_attempts_median_p90": [
+    18.0,
+    18.0
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    2.655,
+    4.24
+   ],
+   "qrule_undecided_mean": 0.000121580547112462,
+   "qrule_says_fail_mean": 0.0,
+   "sprt_says_fail_mean": 0.0
+  },
+  "0 < p < 0.05": {
+   "points": 76,
+   "sprt_attempts_median_p90": [
+    23.31,
+    26.095
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    15.295,
+    33.275000000000006
+   ],
+   "qrule_undecided_mean": 0.03342105263157895,
+   "qrule_says_fail_mean": 0.009473684210526316,
+   "sprt_says_fail_mean": 0.003947368421052633
+  },
+  "0.05 <= p < 0.2 (near ALPHA)": {
+   "points": 135,
+   "sprt_attempts_median_p90": [
+    37.32,
+    47.812000000000005
+   ],
+   "sprt_undecided_mean": 0.0011111111111111111,
+   "qrule_attempts_median_p90": [
+    39.425,
+    64.94700000000002
+   ],
+   "qrule_undecided_mean": 0.2358148148148148,
+   "qrule_says_fail_mean": 0.29307407407407404,
+   "sprt_says_fail_mean": 0.3617777777777778
+  },
+  "0.2 <= p < 0.5": {
+   "points": 103,
+   "sprt_attempts_median_p90": [
+    11.28,
+    18.46
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    5.94,
+    13.306000000000001
+   ],
+   "qrule_undecided_mean": 0.0052427184466019424,
+   "qrule_says_fail_mean": 0.9252427184466022,
+   "sprt_says_fail_mean": 0.9940776699029126
+  },
+  "p >= 0.5": {
+   "points": 394,
+   "sprt_attempts_median_p90": [
+    4.155,
+    5.4639999999999995
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    2.6275,
+    3.2885
+   ],
+   "qrule_undecided_mean": 0.0,
+   "qrule_says_fail_mean": 0.995977157360406,
+   "sprt_says_fail_mean": 1.0
+  }
+ },
+ "all_sprt_attempts_mean": 17.37201987520222,
+ "all_qrule_attempts_mean": 4.695655188352207
+}
+high {
+ "points": 4327,
+ "bands": {
+  "p = 0 (no fail seen)": {
+   "points": 3173,
+   "sprt_attempts_median_p90": [
+    18.0,
+    18.0
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    3.07,
+    5.6240000000000006
+   ],
+   "qrule_undecided_mean": 0.0004254648597541759,
+   "qrule_says_fail_mean": 7.87897888433659e-06,
+   "sprt_says_fail_mean": 0.0
+  },
+  "0 < p < 0.05": {
+   "points": 133,
+   "sprt_attempts_median_p90": [
+    23.4,
+    26.394
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    15.13,
+    40.266999999999996
+   ],
+   "qrule_undecided_mean": 0.04293233082706767,
+   "qrule_says_fail_mean": 0.009172932330827069,
+   "sprt_says_fail_mean": 0.002556390977443609
+  },
+  "0.05 <= p < 0.2 (near ALPHA)": {
+   "points": 307,
+   "sprt_attempts_median_p90": [
+    37.14,
+    47.114
+   ],
+   "sprt_undecided_mean": 0.0010749185667752444,
+   "qrule_attempts_median_p90": [
+    36.055,
+    57.795
+   ],
+   "qrule_undecided_mean": 0.19436482084690554,
+   "qrule_says_fail_mean": 0.299885993485342,
+   "sprt_says_fail_mean": 0.3607817589576547
+  },
+  "0.2 <= p < 0.5": {
+   "points": 234,
+   "sprt_attempts_median_p90": [
+    11.45,
+    21.616
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    6.55,
+    17.938500000000005
+   ],
+   "qrule_undecided_mean": 0.005,
+   "qrule_says_fail_mean": 0.921645299145299,
+   "sprt_says_fail_mean": 0.990811965811966
+  },
+  "p >= 0.5": {
+   "points": 480,
+   "sprt_attempts_median_p90": [
+    3.745,
+    5.384000000000001
+   ],
+   "sprt_undecided_mean": 0.0,
+   "qrule_attempts_median_p90": [
+    2.395,
+    2.7630000000000003
+   ],
+   "qrule_undecided_mean": 0.0,
+   "qrule_says_fail_mean": 0.9946770833333332,
+   "sprt_says_fail_mean": 1.0
+  }
+ },
+ "all_sprt_attempts_mean": 17.83436561127802,
+ "all_qrule_attempts_mean": 6.808234342500578
+}

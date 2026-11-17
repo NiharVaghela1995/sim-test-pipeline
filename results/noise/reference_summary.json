@@ -1,0 +1,93 @@
+{
+ "low": {
+  "level": {
+   "name": "low",
+   "sigma_x": 0.2,
+   "sigma_y": 0.1,
+   "sigma_v": 0.1,
+   "delay": 0.1
+  },
+  "applicable": 4327,
+  "runs": 60640,
+  "stage2_points": 579,
+  "no_verdict_share": 0.11634234828496037,
+  "not_realised_by_gate": {
+   "dynamics_valid_to_kpi": 7054,
+   "outcome_settled": 1
+  },
+  "truth_points": 4271,
+  "target_share": 0.07679700304378366,
+  "p_half_share": 0.06181222196206977,
+  "any_fail_share": 0.08733317724186374,
+  "collisions": 0,
+  "iso_change_mean_abs": 3.482653515309495e-05,
+  "lines_with_multiple_raw_crossings": 0,
+  "boundary_points": 42,
+  "margin_sd_quantiles_10_50_90": [
+   0.04772947319002037,
+   0.12998557290690416,
+   0.26469643099397777
+  ]
+ },
+ "mid": {
+  "level": {
+   "name": "mid",
+   "sigma_x": 0.5,
+   "sigma_y": 0.2,
+   "sigma_v": 0.3,
+   "delay": 0.2
+  },
+  "applicable": 4327,
+  "runs": 70120,
+  "stage2_points": 895,
+  "no_verdict_share": 0.055077010838562424,
+  "not_realised_by_gate": {
+   "dynamics_valid_to_kpi": 3841,
+   "outcome_settled": 21
+  },
+  "truth_points": 4327,
+  "target_share": 0.1308065634388722,
+  "p_half_share": 0.09128726600415993,
+  "any_fail_share": 0.16362375779986132,
+  "collisions": 79,
+  "iso_change_mean_abs": 0.0003721237441897301,
+  "lines_with_multiple_raw_crossings": 0,
+  "boundary_points": 65,
+  "margin_sd_quantiles_10_50_90": [
+   0.0959741563051034,
+   0.27078245849478955,
+   0.5384199567665242
+  ]
+ },
+ "high": {
+  "level": {
+   "name": "high",
+   "sigma_x": 1.0,
+   "sigma_y": 0.3,
+   "sigma_v": 0.6,
+   "delay": 0.3
+  },
+  "applicable": 4327,
+  "runs": 84970,
+  "stage2_points": 1390,
+  "no_verdict_share": 0.041438154642815084,
+  "not_realised_by_gate": {
+   "dynamics_valid_to_kpi": 3170,
+   "outcome_settled": 54,
+   "ego_cruise_before_cut": 363
+  },
+  "truth_points": 4327,
+  "target_share": 0.19759648717356135,
+  "p_half_share": 0.11185578923041369,
+  "any_fail_share": 0.2666974809336723,
+  "collisions": 592,
+  "iso_change_mean_abs": 0.0020685664515162506,
+  "lines_with_multiple_raw_crossings": 15,
+  "boundary_points": 90,
+  "margin_sd_quantiles_10_50_90": [
+   0.15023419523069315,
+   0.42071833588137614,
+   0.8012051846817388
+  ]
+ }
+}
